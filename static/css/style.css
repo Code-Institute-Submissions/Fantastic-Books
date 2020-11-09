@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+header {
+    position: relative;
+    height: 125px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+body {
+    color: #420420;
+}
+
+/* Navbar */
+
+nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+}
+
+nav .brand-logo {
+    color: #420420;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+nav ul a {
+    color: #420420;
+}
+
+nav a { 
+    color: #420420;
+}
+
+.bg-color {
+    background-color: transparent;
+}
+
+.bg-navbar:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: skewY(-2deg);
+    transform-origin: top left;
+    content: '';
+    background-image: linear-gradient(rgba(250, 250, 237, 0.9), rgba(251,251,240, 0.7));
+}
+
+.sub-logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Search Bar */
+
+.search-container {
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  
+}
+
+.search-bar {
+align-items: right;
+
+}
+
+.search-bar form {
+    background-color: none;
+    align-items: center;
+}
+
+form.search-bar input[type=text] {
+  padding: 10 10 0 10; 
+  font-size: 17px;
+  border-radius: 5px 0 0 5px;
+  float: left; 
+  width: 80%;
+  background: rgba(250, 250, 237, 0.7);
+  border-bottom: none;
+ 
+}
+
+form ::placeholder {
+    color:#420420;
+    padding-left: 5px;
+}
+
+form.search-bar button {
+  padding: 10px;
+  background: #420420;
+  color: #fafaed;
+  font-size: 17px;
+  border: 3px solid #420420;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+ 
+}
+
+form.search-bar button:hover {
+  background: #5a052c;
+}
+
+form.search-bar::after {
+  content: "";
+  clear: both;
+  display: table;
+} 
+
+/* Background Images */
+.home-image{ 
+    background: url("../images/grass_floor.png"); 
+}
+
+.bg-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  top: 0;  
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%; 
+  height: 100%;
+  position: absolute;
+  content: ''; 
+  z-index: -1;
+  margin-bottom:0 0 30px 0;
+}
+
+/* Cards */
+.card-container {
+  margin: auto;
+  position: relative;
+}
+
+.card {
+    background-color: rgba(250, 250, 237, 0.7);
+    margin-top: 100px;
+    text-align: center; 
+    position: absolute;
+}
+
+.card .card-title {
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    font-size: 50px;
+    color: #420420;
+}
+
+.card-content {
+    color: #420420;
+}
+
+
+/* Footer */
+footer {
+    z-index: 1;
+    bottom:0; 
+}
+
+.page-footer {
+    background-color: #420420;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #fafaed;
+}
+
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+.page-heading {
+    color: #420420;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+}
+
+footer .row {
+    margin: 0 auto 0 auto;
+}
+
+footer p {
+    margin: 0 auto 0 auto;
+}
