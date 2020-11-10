@@ -5,10 +5,8 @@
 <main>
     <div class="bg-image register-image responsive-img">    </div>    
 
-   <h3 class="center-align register-heading"> Register </h3>
-
     <div class="row no-margin">
-    <form class="col s10 offset-s1 m8 offset-m2 register">
+    <form class="col s10 offset-s1 m8 offset-m2 register" method="POST" action="{{ url_for('register') }}">
       <div class="row">
         <div class="input-field col s6">
           <input  id="firstname" name="firstname" type="text" class="validate" required>
@@ -43,19 +41,19 @@
           <label  for="password2">Confirm Password</label>
         </div>
       </div>
-       <div class="row">
-                    <button type="submit" class="col s12 m8 offset-m2">
+      <div class="center-align form-btn">
+                    <button type="submit" class="register-btn btn">
                         Register
                     </button>
-                </div>
-                 <div class="row">
-                    <div class="col s12 m8 offset-m2">
-            <p class="center-align">
+      </div>
+      <div class="row">
+            <div class="col s12 m8 offset-m2">
+               <p class="center-align">
                 Already Registered?
                 <a href="{{ url_for('login') }}">Log In</a>
-            </p>
-        </div>
-    </div>
+               </p>
+            </div>
+       </div>
     </form>
   </div>
 </main>
