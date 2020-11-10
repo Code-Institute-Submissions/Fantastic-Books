@@ -129,6 +129,10 @@ form.search-bar::after {
     background: url("../images/chair_book.png")
 }
 
+.login-image {
+    background: url("../images/sky_book.png")
+}
+
 .bg-image {
   background-repeat: no-repeat;
   background-position: center;
