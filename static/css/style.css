@@ -134,6 +134,10 @@ form.search-bar::after {
     background: url("../images/sky_book.png")
 }
 
+.reviews-image {
+    background: url("../images/field_book.png"); 
+}
+
 .bg-image {
   background-repeat: no-repeat;
   background-position: center;

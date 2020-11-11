@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<main>
+    
+        <div class="bg-image reviews-image responsive-img"> </div>
+
+<section>
+ <div class="row no-margin">
+    <div class= "col m4 offset-m8 search-container hide-on-small-only">
+        <form class="search-bar" method="POST" action="">
+            <input type="text" name="search" id="search" placeholder="Enter Author, Title or Genre...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+ </div>
+</section>        
+</main>
+{% endblock %}
