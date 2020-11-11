@@ -2,7 +2,7 @@
 
 header {
     position: relative;
-    height: 125px;
+    height: 100px;
     overflow: hidden;
     z-index: 2;
 }
