@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main>
+        <div class="bg-image search-image responsive-img"> 
+            </div>
+  
+<div class="mobile-search">
+    <div class="row">
+        <div class="col s10 offset-s1">
+            <div class="center=align">
+                <h5>Come with me and you'll be in a world of pure imagination...</h5>
+                 Find your next adventure!
+            </div>
+        </div> 
+    </div>  
+
+    <form action="{{ url_for('search') }}" method="post" class="col s12">
+        <div class="row">
+            <div class="input-field search col s12">
+                 <i class="fas fa-search prefix"></i>
+                 <input type="text" name="query" id="query" class="validate" required>
+                 <label for="query">Enter Author, Title, Genre</label>
+            </div>  
+        </div>
+          <div class="center-align"><a class="btn-small search-btn"><i class="fas fa-search left"></i>Search</a></div>
+    </form>
+
+  </div> 
+
+</main>
+{% endblock %}
