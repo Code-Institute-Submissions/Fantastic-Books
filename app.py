@@ -102,8 +102,8 @@ def add_review():
             "published": request.form.get("published"),
             "cover": request.form.get("cover"),
             "buy": request.form.get("buy"),
-            "synopsis": request.form.get(""),
-            "review": request.form.get(""),
+            "synopsis": request.form.get("synopsis"),
+            "review": request.form.get("review"),
             "created_by": session["user"]
         }
         mongo.db.reviews.insert_one(review)
