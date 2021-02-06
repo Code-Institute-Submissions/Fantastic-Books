@@ -16,6 +16,53 @@
         </form>
     </div>
  </div>
-</section>        
+</section>  
+
+<section>
+
+    {% if reviews|length > 0 %}
+    <div class="review-container">
+        <ul>
+        {% for review in reviews %}
+            <li>
+                <div class="reviews">
+                    <div class="row">
+                        <div class="col s12 m4 responsive-img">
+                            <img  src="{{ review.cover }}" class="book-cover" >
+                       </div>    
+                <div class="col s12 m8">
+                    <p class="book-info"> <strong>{{ review.title }}</strong>
+                    <br> {{ review.author }} 
+                    <br> Genre: {{ review.genre }} 
+                    <br>Published: {{ review.published }}
+                    </p>
+                </div>
+
+                <div class="row">
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header">Synopsis</div>
+                            <div class="collapsible-body"> {{ review.synopsis}}</div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">Review</div>
+                            <div class="collapsible-body"> {{ review.review }}</div>
+                        </li>
+                    </ul>
+                    {% if session.user|lower == review.created_by|lower %}
+                        <a href="" class="btn-small">Delete</a>
+                        <a href="" class="btn-small">Edit</a>
+                    {% endif %} 
+                    </div>  
+                    </div>
+                </div>
+            </li>
+       {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+ </section>
+    
+
 </main>
 {% endblock %}

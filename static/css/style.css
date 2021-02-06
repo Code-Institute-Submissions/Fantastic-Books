@@ -161,6 +161,7 @@ form.search-bar::after {
     background-image: url("../images/night_book.png");
 }
 
+
 .search-image {
     background: url("../images/sky.png"); 
 }
@@ -353,7 +354,7 @@ form .row,
 }
 
 
-/* Review Forms */
+/* Review Add/Edit Forms */
 .form-container {
     margin-top: 2.5rem;
     margin-left:.5rem;
@@ -389,6 +390,24 @@ textarea {
 
 .btn-small:hover {
     background-color: #5a052c; 
+}
+
+/* Reviews */
+
+.reviews {
+    width: 50%;
+    margin: auto;
+    background-color: rgba(250, 250, 237, 0.1)
+}
+
+.book-cover {
+ display: flex;
+ height: 100%;
+ width: 100%;
+} 
+
+.book-info {
+    margin-bottom: 40px;
 }
 
 

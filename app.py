@@ -89,7 +89,8 @@ def login():
 
 @app.route("/reviews")
 def reviews():
-    return render_template("reviews.html")
+    reviews = list(mongo.db.reviews.find())
+    return render_template("reviews.html", reviews=reviews)
 
 
 @app.route("/add_review", methods=["GET", "POST"])
