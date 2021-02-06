@@ -51,7 +51,7 @@
                     </ul>
                     {% if session.user|lower == review.created_by|lower %}
                         <a href="" class="btn-small">Delete</a>
-                        <a href="" class="btn-small">Edit</a>
+                        <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
                     {% endif %} 
                     </div>  
                     </div>

@@ -161,6 +161,9 @@ form.search-bar::after {
     background-image: url("../images/night_book.png");
 }
 
+.edit-image {
+    background-image: url("../images/tree_book.png")
+}
 
 .search-image {
     background: url("../images/sky.png"); 

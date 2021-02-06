@@ -115,6 +115,29 @@ def add_review():
     return render_template("add_review.html", reviews=reviews)
 
 
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    if request.method == "POST":
+        update = {
+            "title": request.form.get("title"),
+            "author": request.form.get("author"),
+            "genre": request.form.get("genre"),
+            "published": request.form.get("published"),
+            "cover": request.form.get("cover"),
+            "buy": request.form.get("buy"),
+            "synopsis": request.form.get("synopsis"),
+            "review": request.form.get("review"),
+            "created_by": session["user"]
+        }
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, update)
+        flash("")
+        return redirect(url_for("reviews"))
+
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    reviews = mongo.db.reviews.find().sort("title", 1)
+    return render_template("edit_review.html", review=review, reviews=reviews)
+
+
 @app.route("/search")
 def search():
     return render_template("search.html")
