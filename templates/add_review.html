@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div class="bg-image add-review-image responsive-img">    </div> 
 
-<main>
+
+<main class="bg-image add-review-image responsive-img">
 
     <div class="row no-margin form-container">
         <form class="col s12 register m8 offset-m2" method="POST" action="{{ url_for('add_review') }}">
@@ -14,59 +14,68 @@
                     <label  for="title">Title</label>
                 </div>
             </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <input  id="author" name="author" type="text" class="validate" required>
-            <label  for="author">Author</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <input id="genre" name="genre" type="text" class="validate" required>
-            <label for="genre">Genre</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <input id="published" name="published" type="text" class="validate" required>
-            <label for="published">Published</label>
-        </div>
-    </div>
-     <div class="row">
-        <div class="input-field col s12">
-            <input id="cover" name="cover" type="url" class="validate" required>
-            <label for="cover">Link to Cover Image</label>
-        </div>
-    </div>
-     <div class="row">
-        <div class="input-field col s12">
-            <input id="buy" name="buy" type="url" class="validate" required>
-            <label for="buy">Buy</label>
-        </div>
-    </div>
-    <div class="row">
-         <ul class="collapsible">
-            <li>
-                <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
-                <div class="collapsible-body">
-                    <textarea id="synopsis" name="synopsis" type="text" class="validate" required></textarea>
-                    <label for="synopsis">Synopsis</label>
+    
+            <div class="row">
+                <div class="input-field col s12">
+                    <input  id="author" name="author" type="text" class="validate" required>
+                    <label  for="author">Author</label>
                 </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
-                <div class="collapsible-body">
-                    <textarea id="review" name="review" type="text"  class="validate" required></textarea>
-                    <label for="review">Review</label>
+            </div>
+    
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="genre" name="genre" type="text" class="validate" required>
+                    <label for="genre">Genre</label>
                 </div>
-            </li>
-        </ul>    
-    </div>
-    <div class="row">
-        <button type="submit" class="col s6 offset-s3 m4 offset-m4 btn-small">
-            Add Review
-        </button>
-    </div>            
+            </div>
+    
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="published" name="published" type="text" class="validate" required>
+                    <label for="published">Published</label>
+                </div>
+            </div>
+     
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="cover" name="cover" type="url" class="validate" required>
+                    <label for="cover">Link to Cover Image</label>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="buy" name="buy" type="url" class="validate" required>
+                    <label for="buy">Buy</label>
+                </div>
+            </div>
+    
+            <div class="row">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
+                        <div class="collapsible-body">
+                            <textarea id="synopsis" name="synopsis" type="text" class="validate" required></textarea>
+                            <label for="synopsis">Synopsis</label>
+                        </div>
+                    </li>
+            
+                    <li>
+                        <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+                        <div class="collapsible-body">
+                            <textarea id="review" name="review" type="text"  class="validate" required></textarea>
+                            <label for="review">Review</label>
+                        </div>
+                    </li>
+                </ul>    
+            </div>
+    
+            <div class="row">
+                <button type="submit" class="col s6 offset-s3 m4 offset-m4 btn-small">
+                    Add Review
+                </button>
+            </div>            
+        
         </form>
     </div>
 </main>
