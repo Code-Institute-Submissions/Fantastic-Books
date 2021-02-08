@@ -19,7 +19,7 @@
 <!-- Tab Buttons-->
     <div class="tab-container">
             <div class="row">
-                <div class="col s12 m8 offset-m2">
+                <div class="col s12 m10 offset-m1">
                     <div class="tab center-align">
                         <button class="tablinks" onclick="openTab(event, 'books')">My Saved Books</button>
                         <button class="tablinks" onclick="openTab(event, 'reviews')">My Reviews</button>
@@ -30,7 +30,7 @@
 
 <!-- Tab Content -->
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m10 offset-m1">
             <div id="books" class="tabcontent">
                 <h3 class="center-align tab-heading">My Saved Books</h3>
                 <ul>
@@ -41,88 +41,122 @@
     </div>
 
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12 m10 offset-m1">   
             <div id="reviews" class="tabcontent">
-                <h3 class="center-align tab-heading">My Reviews</h3>
-                <ul>
- 
-                 </ul>
-            </div>
+    {% if reviews|length > 0 %} 
+                <ul class="profile-reviews">
+        {% for review in reviews %}
+            {% if session.user|lower == review.created_by|lower %}
+                    <li>
+                        <div class="row">
+                            <div class="col s12 m4 responsive-img">
+                                <img  src="{{ review.cover }}" class="profile-book-cover" >
+                            </div>    
+                            <div class="col s12 m8">
+                                <p class="book-info"> <strong>{{ review.title }}</strong>
+                                <br> {{ review.author }} 
+                                <br> Genre: {{ review.genre }} 
+                                <br>Published: {{ review.published }}
+                                </p>
+
+                                <ul class="collapsible">
+                                    <li>
+                                        <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
+                                        <div class="collapsible-body"> {{ review.synopsis}}</div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+                                        <div class="collapsible-body"> {{ review.review }}</div>
+                                    </li>
+
+                                <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
+                                <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
+                                </ul>
+                            </div>
+                        </div>
+                   </li>
+            {% endif %}  
+        {% endfor %} 
+               </ul>
+    {% else %}
+                <h3>You have no reviews </h3>
+                    <a href="{{ url_for('add_review') }}" type="submit" class="btn center-align">
+                        Add Review </a>
+    {% endif %}  
+            </div> 
         </div>
     </div>
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2">
+     <div class="row">
+        <div class="col s12 m10 offset-m1">
             <div id="add-review" class="tabcontent">
-                <h4 class="center-align tab-heading">Add Review</h4>
-            <div class="row no-margin">
-                <form class="col s12 register">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input  id="title" name="title" type="text" class="validate" required>
-                            <label  for="title">Title</label>
+                <div class="row no-margin">
+                    <form class="col s12 register" method="POST" action="{{ url_for('add_review') }}">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input  id="title" name="title" type="text" class="validate" required>
+                                <label  for="title">Title</label>
+                            </div>
                         </div>
-                    </div>
-            
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input  id="author" name="author" type="text" class="validate" required>
-                            <label  for="author">Author</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input  id="author" name="author" type="text" class="validate" required>
+                                <label  for="author">Author</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="genre" name="genre" type="text" class="validate" required>
-                            <label for="genre">Genre</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="genre" name="genre" type="text" class="validate" required>
+                                <label for="genre">Genre</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="published" name="published" type="text" class="validate" required>
-                            <label for="published">Published</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="published" name="published" type="text" class="validate" required>
+                                <label for="published">Published</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="cover" name="cover" type="url" class="validate" required>
-                            <label for="cover">Link to Cover Image</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="cover" name="cover" type="url" class="validate" required>
+                                <label for="cover">Link to Cover Image</label>
+                            </div>
                         </div>
-                    </div>
-                
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="buy" name="buy" type="url" class="validate" required>
-                            <label for="buy">Buy</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="buy" name="buy" type="url" class="validate" required>
+                                <label for="buy">Buy</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <ul class="collapsible">
-                            <li>
-                                <div class="collapsible-header">Summary</div>
-                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header">Review</div>
-                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="row">
-                        <button type="submit" class="col s12 m8 offset-m2 register-btn btn">
-                            Add Review
-                        </button>
-                    </div>            
-                 </form>
-            </div>
+                        <div class="row">
+                            <ul class="collapsible profile-collapsible">
+                                <li>
+                                    <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
+                                    <div class="collapsible-body">
+                                        <textarea id="synopsis" name="synopsis" type="text" class="materialize-textarea validate" required></textarea>
+                                        <label for="synopsis">Synopsis</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
+                                    <div class="collapsible-body">
+                                        <textarea id="review" name="review" type="text"  class="materialize-textarea validate" required></textarea>
+                                        <label for="review">Review</label>
+                                    </div>
+                                </li>
+                            </ul>    
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="col s12 m4 offset-m4 btn-small profile-btn">
+                                Add Review
+                            </button>
+                        </div>            
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
 
 </main>
 

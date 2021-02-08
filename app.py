@@ -27,7 +27,8 @@ def index():
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    my_reviews = list(mongo.db.reviews.find())
+    return render_template("profile.html", reviews=my_reviews)
 
 
 @app.route("/register", methods=["GET", "POST"])
