@@ -403,13 +403,16 @@ form .row,
 .collapsible-header {
     background-color: rgba(250, 250, 237, 0.1);
     padding: 5px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.15rem;
     border: 0;
 }
 
 .collapsible-body {
     padding: 5px;
     border-bottom: 0;
+    font-weight: 600;
+    background-color: rgba(250, 250, 237, 0.3) ;
 }
 
 textarea {
@@ -442,15 +445,21 @@ textarea {
 }
 .profile-book-cover,
 .book-cover {
- display: flex;
- max-height: 15rem;
- max-width: 9.5rem;
- margin-top: .625rem;
-} 
+    display: flex;
+    max-height: 15rem;
+    max-width: 9.5rem;
+    margin-top: .625rem;
+}
+
+.book-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
 
 .book-info {
     margin-bottom: 1rem;
     font-weight: 500;
+    color: #420420;
 }
 
 .review-btn-container {

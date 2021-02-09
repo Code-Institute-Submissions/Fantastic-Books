@@ -28,11 +28,12 @@
                 <div class="reviews">
                     <div class="row">
                         <div class="col s12 m4 responsive-img">
-                            <img  src="{{ review.cover }}" class="book-cover" >
+                            <img  src="{{ review.cover }}" alt="cover image for {{review.title}}" class="book-cover" >
                             <small><em>Created by: {{ review.created_by }}</em><br> {{ review.created }}</small>
-                       </div>    
+                       </div>     
                         <div class="col s12 m8">
-                            <p class="book-info"> <strong>{{ review.title }}</strong>
+                            <p class="book-info"> <strong class="book-title">{{ review.title }}</strong>
+                            <a href="{{ review.buy }}" target="_blank" class="btn-small right">Buy</a>
                             <br> {{ review.author }} 
                             <br> Genre: {{ review.genre }} 
                             <br>Published: {{ review.published }}
