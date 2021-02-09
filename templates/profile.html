@@ -4,7 +4,7 @@
 
 
 <main class="bg-image profile-image responsive-img">
-
+<!-- Search Bar-->
     <section>
         <div class="row no-margin">
             <div class= "col m4 offset-m8 search-container hide-on-small-only">
@@ -40,6 +40,7 @@
         </div>
     </div>
 
+<!-- Display users own reviews-->
     <div class="row">
         <div class="col s12 m10 offset-m1">   
             <div id="reviews" class="tabcontent">
@@ -51,6 +52,7 @@
                         <div class="row">
                             <div class="col s12 m3 responsive-img">
                                 <img  src="{{ review.cover }}" alt="cover image for {{review.title}}" class="profile-book-cover" >
+                                <small><em>{{ review.date_created }}</em></small>
                             </div>    
                             <div class="col s12 m6">
                                 <p class="book-info"> <strong class="book-title">{{ review.title }}</strong>
@@ -72,7 +74,7 @@
                                 <button data-target="confirm_delete" class="btn-small modal-trigger">Delete</button>
                                 <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
                                 </ul>
-                                 
+                                        <!-- Confirm Delete Modal-->                            
                                     <div id="confirm_delete" class="modal">
                                         <div class="modal-content">
                                             <h4>Confirm Delete</h4>
@@ -98,6 +100,7 @@
         </div>
     </div>
 
+<!-- Add Review Form -->   
      <div class="row">
         <div class="col s12 m10 offset-m1">
             <div id="add-review" class="tabcontent">

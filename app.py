@@ -1,4 +1,5 @@
 import os
+from datetime import date
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -94,6 +95,9 @@ def reviews():
     return render_template("reviews.html", reviews=reviews)
 
 
+date = date.today()
+
+
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
@@ -106,7 +110,8 @@ def add_review():
             "buy": request.form.get("buy"),
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "date_created": date.strftime("%d %b %Y")
         }
         mongo.db.reviews.insert_one(review)
         flash("Your Review Has Been Added")
