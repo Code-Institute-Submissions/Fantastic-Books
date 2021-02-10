@@ -86,16 +86,10 @@ nav a {
   padding: 6px;
   border-radius: 5px;
   border: none;
-  margin-top: 2rem;
-  
+  margin-top: 1.5rem; 
 }
 
 .search-bar {
-align-items: right;
-
-}
-
-.search-bar form {
     background-color: none;
     align-items: center;
 }
@@ -138,6 +132,7 @@ form.search-bar::after {
   clear: both;
   display: table;
 } 
+
 
 /* Mobile Search */
 .mobile-search {

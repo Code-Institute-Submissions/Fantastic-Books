@@ -150,9 +150,11 @@ def delete_review(review_id):
     return redirect(url_for("profile"))
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
-    return render_template("search.html")
+    search = request.form.get("search")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": search}}))
+    return render_template("reviews.html", reviews=reviews)
 
 
 @app.route("/logout")
