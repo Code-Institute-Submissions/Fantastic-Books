@@ -39,6 +39,17 @@
                         <div class="col s12 m8">
                             <p class="book-info"> <strong class="book-title">{{ review.title }}</strong>
                             <a href="{{ review.buy }}" target="_blank" class="btn-small right">Buy</a>
+                        
+                            {% if session.user|lower != review.created_by|lower %}
+                        <form method="POST" action="">   
+                        <div class="heart-checkbox right">
+                            <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}"/>
+                            <label for="heart-checkbox{{loop.index}}">
+                                Save Review!
+                            </label>
+                        </div>
+                        </form> 
+                        {% endif %}
                             <br> {{ review.author }} 
                             <br> Genre: {{ review.genre }} 
                             <br>Published: {{ review.published }}

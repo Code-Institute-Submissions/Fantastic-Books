@@ -26,12 +26,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/profile")
-def profile():
-    my_reviews = list(mongo.db.reviews.find())
-    return render_template("profile.html", reviews=my_reviews)
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -101,13 +95,15 @@ date = date.today()
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
+        default_url = ("https://www.bookdepository.com/")
+        default_img = "static/images/no_cover.png"
         review = {
             "title": request.form.get("title"),
             "author": request.form.get("author"),
             "genre": request.form.get("genre"),
             "published": request.form.get("published"),
-            "cover": request.form.get("cover"),
-            "buy": request.form.get("buy"),
+            "cover": request.form.get("cover") or default_img,
+            "buy": request.form.get("buy") or default_url,
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
             "created_by": session["user"],
@@ -142,6 +138,12 @@ def edit_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     reviews = mongo.db.reviews.find().sort("title", 1)
     return render_template("edit_review.html", review=review, reviews=reviews)
+
+
+@app.route("/profile")
+def profile():
+    my_reviews = list(mongo.db.reviews.find())
+    return render_template("profile.html", reviews=my_reviews)
 
 
 @app.route("/delete_review/<review_id>")

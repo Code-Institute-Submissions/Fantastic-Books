@@ -5,7 +5,14 @@
      let collapsiblesInstance = M.Collapsible.init(collapsibles);
      let modals = document.querySelectorAll('.modal');
      let modalInstances = M.Modal.init(modals);
+     let flashMessage = document.getElementById("flashMessage{{loop.index}}");
+setTimeout(function() {
+    flashMessage.fadeOut("fast");
+}, 2000);
   });
+
+
+
 
   function openTab(evt, tabName) {
   let i,

@@ -463,6 +463,27 @@ textarea {
     margin-top: 5px;
 }
 
+.heart-checkbox input[type='checkbox'] {
+    display:none;
+}
+
+.heart-checkbox input[type='checkbox']+ label:before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f004";
+	font-size:1.5rem;
+    cursor:pointer;
+    color: white;
+}
+
+.heart-checkbox input[type='checkbox']:checked + label:before {
+     font-weight:600;
+     color: red;
+}
+
+.heart-checkbox label {
+     color: #420420;
+     font-weight: 500;
+}
 
 /* Media Queries */
 @media only screen and (min-width: 768px) {
