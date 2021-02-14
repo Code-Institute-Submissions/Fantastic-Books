@@ -107,6 +107,7 @@ def add_review():
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
             "created_by": session["user"],
+            "rating": request.form.get("star"),
             "date_created": date.strftime("%d %b %Y")
         }
         mongo.db.reviews.insert_one(review)
