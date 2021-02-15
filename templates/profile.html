@@ -32,10 +32,19 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div id="books" class="tabcontent">
-                <h3 class="center-align tab-heading">My Saved Books</h3>
+                {% if saved_books|length > 0 %}
                 <ul>
+                    {% for saved in saved_books %}
+                    <li>
 
+                    </li>
+                    {% endfor %}
                 </ul>
+                {% else %}
+                <h3>You have no books saved </h3>
+                    <a href="{{ url_for('reviews') }}" class="btn btn-small center-align">
+                        Find Books! </a>
+            {% endif %}
             </div>
         </div>
     </div>
@@ -47,7 +56,7 @@
     {% if reviews|length > 0 %} 
                 <ul class="profile-reviews">
         {% for review in reviews %}
-            {% if session.user|lower == review.created_by|lower %}
+            
                     <li>
                         <div class="row">
                             <div class="col s12 m3 responsive-img">
@@ -88,8 +97,7 @@
                                     </div>
                             </div>
                         </div>
-                   </li>
-            {% endif %}  
+                   </li> 
         {% endfor %} 
                </ul>
     {% else %}
@@ -161,6 +169,23 @@
                                 </li>
                             </ul>    
                         </div>
+
+                         <div class="row txt-center">
+                            <div class="rating col s6 push-s2 m6 push-m1">
+                                <input id="star5" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
+                                <label for="star5"><i class="fas fa-star"></i></label>
+                                <input id="star4" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
+                                <label for="star4"><i class="fas fa-star"></i></label>
+                                <input id="star3" name="star" type="radio" value="&#11088; &#11088; &#11088;" class="radio-btn hide" />
+                                <label for="star3"><i class="fas fa-star"></i></label>
+                                <input id="star2" name="star" type="radio" value="&#11088; &#11088;" class="radio-btn hide" />
+                                <label for="star2"><i class="fas fa-star"></i></label>
+                                <input id="star1" name="star" type="radio" value="&#11088;" class="radio-btn hide" />
+                                <label for="star1"><i class="fas fa-star"></i></label>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <button type="submit" class="col s12 m4 offset-m4 btn-small profile-btn">
                                 Add Review
