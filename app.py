@@ -171,6 +171,11 @@ def search():
     return render_template("reviews.html", reviews=reviews)
 
 
+@app.route("/search_mobile")
+def search_mobile():
+    return render_template("search_mobile.html")
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie

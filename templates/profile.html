@@ -8,7 +8,7 @@
     <section>
         <div class="row no-margin">
             <div class= "col m4 offset-m8 search-container hide-on-small-only">
-                <form class="search-bar" method="POST" action="">
+                <form class="search-bar" method="POST" action="{{ url_for('search') }}">
                     <input type="text" name="search" id="search" placeholder="Enter Author, Title or Genre...">
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
