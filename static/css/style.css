@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 header {
     position: relative;
   /*  height: 6.25rem; */
@@ -549,6 +552,35 @@ textarea {
     margin-bottom: 5px;
 }
 
+/*Scroll Up Btn*/
+.scrollBtn {
+    margin-right: 4.3754rem;
+    margin-bottom: 3.125rem;
+    position: relative;
+    background-color: #5a052c;
+    border: 1px solid #5a052c;
+    border-radius: 5px;
+    color: #fafaed;
+    box-shadow: none;
+    padding: 2px 5px 2px 5px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.scrollBtn:hover {
+    background-color: #e61573;
+}
+
+.scrollBtn:focus,
+.scrollBtn:active {
+    background-color: #5a052c;
+}
+
+.scrollBtn i {
+    padding: 5px;
+    font-size: 1.5rem;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .form-container {
@@ -575,5 +607,9 @@ textarea {
 
     .review-rating {
         text-align: center;
+    }
+
+    .tab button {
+        padding: 10px 9px; 
     }
 }

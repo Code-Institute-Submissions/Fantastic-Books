@@ -11,9 +11,7 @@ setTimeout(function() {
 }, 2000);
   });
 
-
-
-
+// Tabs code from W3S
   function openTab(evt, tabName) {
   let i,
       tabcontent, 
@@ -37,8 +35,18 @@ setTimeout(function() {
 }
 
 openBooksTabOnload()
-
+// Open first tab on page load
 function openBooksTabOnload()  {
     document.getElementById("books").style.display = "block";
     document.getElementsByClassName("tablinks")[0].classList.add("active");
+}
+
+//Scroll code from W3S
+//Get button to scroll back to top of the page
+scrollBtn = document.getElementById("scrollToTop");
+
+// On button click, scroll to the top of the page 
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
