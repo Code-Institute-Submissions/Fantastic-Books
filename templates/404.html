@@ -2,17 +2,20 @@
 
 {% block content %}
 
-    <main class="bg-image image-404 responsive-img">
-        <div class="row valign-wrapper center-align">
-            <div class="col s12">
-                <div class="f404">
-                    <h1>404 Page Not Found</h1>
-                    <h2 class="heading-404">Oops! Seems we've hit a dead end!</h2>
-                    <p> Let's get you back on the right path!</p>
-                    <a href="{{  url_for('home') }}" class="btn btn-small">OK!</a>
-                </div>
+<main class="image-404 responsive-img">
+
+    <div class="row center-align">
+        <div class="col s12">
+            <div class="f404">
+                <h1 class="f404-heading hide-on-small-only"><strong class="sub-404">404</strong><br> Page Not Found!</h1>
+                <h2 class="f404-heading hide-on-med-and-up"><strong class="sub-404">404</strong><br> Page Not Found!</h2>
+                <p class="p404"> Oops! Seems we've hit a dead end!
+                <br> Let's get you back on the right path!
+                <br><a href="{{ url_for('home') }}" class="btn-404 btn-small">OK!</a>
+                </p>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
 {% endblock %}
