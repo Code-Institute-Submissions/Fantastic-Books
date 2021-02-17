@@ -10,7 +10,7 @@ header {
 }
 
 body {
-    color: #420420;
+    color: #720737;
     font-family: 'Lato', sans-serif;
 }
 
@@ -199,8 +199,6 @@ form.search-bar::after {
   min-height: 100vh; 
   position: relative; 
   content: ''; 
-  /*  z-index: -1;
-  margin-bottom:0 0 30px 0; */
   background-attachment: fixed;
 }
 
@@ -226,7 +224,7 @@ footer {
   main {
     flex: 1 0 auto;
   }
-
+/*
 .page-heading {
     color: #420420;
     padding-left: 10px;
@@ -236,7 +234,7 @@ footer {
     font-size: 3.125rem;
     text-align: center;
 }
-
+*/
 footer .row {
     margin: 0 auto 0 auto;
 }
@@ -289,8 +287,8 @@ footer p {
 }
 
 .tab {
-overflow: hidden;
-background-color: rgba(250, 250, 237, 0.7); 
+    overflow: hidden;
+    background-color: rgba(250, 250, 237, 0.7); 
 
 }
 
@@ -307,7 +305,7 @@ background-color: rgba(250, 250, 237, 0.7);
 
 .tab button:hover {
   background-color: #420420;
-   color:#fafaed;
+  color:#fafaed;
 }
 
 .tab button.active {
@@ -415,8 +413,14 @@ textarea {
     border-radius: 3px;
 }
 
-.btn-small:hover {
+.btn-small:focus,
+.btn-small:active,
+.btn-small:visited {
     background-color: #5a052c; 
+}
+
+.btn-small:hover {
+    background-color: #e61573;
 }
 
 .profile-collapsible {
@@ -490,31 +494,34 @@ textarea {
     margin: auto;
     background-color: rgba(250, 250, 237, 0.7);
     border-radius: 3px;
-    color: #420420;
 }
+
 .profile-book-cover,
 .book-cover {
     display: flex;
     max-height: 15rem;
     max-width: 9.5rem;
     margin-top: .625rem;
+    margin-bottom: 5px;
 }
 
 .book-title {
     font-weight: 700;
     font-size: 1.5rem;
+    color: #5a052c;
 }
 
 .book-info {
-    margin-bottom: 1rem;
-    font-weight: 500;
-    color: #420420;
+    margin-bottom: 7px;
+    font-weight: 600;
 }
 
-.review-btn-container {
-    text-align: right;
-    margin-right: 5px;
-    margin-top: 5px;
+.review-rating {
+    margin-bottom: 3px;
+}
+
+.heart-checkbox {
+    margin-bottom: 5px;
 }
 
 .heart-checkbox input[type='checkbox'] {
@@ -525,8 +532,8 @@ textarea {
     font-family: 'Font Awesome 5 Free';
     content: "\f004";
 	font-size:1.5rem;
-    cursor:pointer;
-    color: white;
+    cursor: pointer;
+    color: red;
 }
 
 .heart-checkbox input[type='checkbox']:checked + label:before {
@@ -535,42 +542,43 @@ textarea {
 }
 
 .heart-checkbox label {
-     color: #420420;
+     color: #720737;
      font-weight: 500;
 }
 
-.review-rating {
-    margin-bottom: 5px;
+.buy-btn {
+    margin-right: 1rem;
 }
 
 /*Scroll Up Btn*/
 
-.scrollBtn {
-    margin-right: 4.3754rem;
-    margin-bottom: 3.125rem;
-    position: relative;
+#scrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 70px;
     background-color: #5a052c;
     border: 1px solid #5a052c;
     border-radius: 5px;
     color: #fafaed;
     box-shadow: none;
-    padding: 2px 5px 2px 5px;
     z-index: 99;
-    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
-.scrollBtn:focus,
-.scrollBtn:active {
+#scrollToTop:focus,
+#scrollToTop:active,
+#scrollToTop:visited {
     background-color: #5a052c;
 }
 
-.scrollBtn:hover {
+#scrollToTop:hover {
     background-color: #e61573;
 }
 
-.scrollBtn i {
-    padding: 5px;
-    font-size: 1.5rem;
+#scrollToTop i {
+    font-size: 1.75rem;
 }
 
 /* Search Mobile */

@@ -5,11 +5,36 @@
      let collapsiblesInstance = M.Collapsible.init(collapsibles);
      let modals = document.querySelectorAll('.modal');
      let modalInstances = M.Modal.init(modals);
+  });
+
+/*
      let flashMessage = document.getElementById("flashMessage{{loop.index}}");
 setTimeout(function() {
     flashMessage.fadeOut("fast");
 }, 2000);
-  });
+*/
+
+//Scroll code from W3S
+//Get button to scroll back to top of the page
+let scrollBtn = document.getElementById("scrollToTop");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+// On button click, scroll to the top of the page 
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+document.getElementById("scrollToTop").addEventListener("click", topFunction);
 
 // Tabs code from W3S
   function openTab(evt, tabName) {
@@ -41,12 +66,3 @@ function openBooksTabOnload()  {
     document.getElementsByClassName("tablinks")[0].classList.add("active");
 }
 
-//Scroll code from W3S
-//Get button to scroll back to top of the page
-scrollBtn = document.getElementById("scrollToTop");
-
-// On button click, scroll to the top of the page 
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}

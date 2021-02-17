@@ -15,7 +15,7 @@
                 <button type="submit"><i class="fas fa-search"></i></button> 
             </div>
             <div class="col m4 offset-m8 center-align">
-                <a href="{{ url_for('reviews') }}" class="clear hide-on-small-only">Clear Search Results</a>
+                <a href="{{ url_for('reviews') }}" class="clear">Clear Search Results</a>
             </div>
         </form>
     </div>
@@ -38,18 +38,8 @@
                        </div>     
                         <div class="col s12 m8">
                             <p class="book-info"> <strong class="book-title">{{ review.title }}</strong>
-                            <a href="{{ review.buy }}" target="_blank" class="btn-small right">Buy</a>
+                            
                         
-                            {% if session.user|lower != review.created_by|lower %}
-                        <form method="POST" action="">   
-                        <div class="heart-checkbox right">
-                            <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}"/>
-                            <label for="heart-checkbox{{loop.index}}">
-                                Save Review!
-                            </label>
-                        </div>
-                        </form> 
-                        {% endif %}
                             <br> {{ review.author }} 
                             <br> Genre: {{ review.genre }} 
                             <br>Published: {{ review.published }}
@@ -58,7 +48,20 @@
                             <div class="review-rating" >
                              {{ review.rating}}
                             </div>
-                        </div>
+                            
+                            <div>
+                        {% if session.user|lower != review.created_by|lower %}
+                                <form method="POST" action="">   
+                                    <div class="heart-checkbox">
+                                        <input type="checkbox" id="heart-checkbox{{loop.index}}" name="heart-checkbox{{loop.index}}" />
+                                        <label for="heart-checkbox{{loop.index}}" class="hvr-pulse">
+                                            Save Review!
+                                        </label>
+                                    </div>
+                                </form> 
+                        {% endif %}
+                            </div>
+                        </div> 
 
                    <div class="row"> 
                         <ul class="collapsible">
@@ -71,23 +74,9 @@
                                 <div class="collapsible-body"> {{ review.review }}</div>
                             </li>
                         </ul>
-                    {% if session.user|lower == review.created_by|lower %}
-                        <div class="review-btn-container">
-                            <button data-target="confirm_delete" class="btn-small modal-trigger">Delete</button>
-                            <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small">Edit</a>
-                        </div>
-                            <!--Confirm Review Delete Modal-->
-                        <div id="confirm_delete" class="modal">
-                            <div class="modal-content">
-                                <h4>Confirm Delete</h4>
-                                <p>Are you sure you want to delete this review?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button href="#!" class="modal-close btn-small">Cancel</button>
-                                <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small">Delete</a>
-                            </div>
-                        </div>
-                    {% endif %} 
+
+                        <a href="{{ review.buy }}" target="_blank" class="btn-small buy-btn right">Buy</a>
+
                     </div> 
                     </div>
                 </div>
@@ -95,13 +84,15 @@
        {% endfor %}
         </ul>
     </div>
+
     {% else %}
-    <h3 class="center-align">No Results Found</h3>
+        <h3 class="center-align">No Results Found</h3>
     {% endif %}
+
  </section>
     
     <div>
-        <button onclick="topFunction()" id="scrollToTop" class="right scrollBtn hvr-grow"><i class="fas fa-angle-double-up"></i></button>
+        <button id="scrollToTop" title="Go to top" class="btn-small"><i class="fas fa-angle-double-up"></i></button>
     </div>
 
 </main>
