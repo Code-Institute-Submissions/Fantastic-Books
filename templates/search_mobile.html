@@ -4,27 +4,29 @@
 
 <main class="bg-image search-image responsive-img">
        
-    <div class="mobile-search">
+    <div class="mobile-search-container center-align">
         <div class="row">
-            <div class="col s10 offset-s1">
-                <div class="center=align">
-                    <h5>Come with me and you'll be in a world of pure imagination...</h5>
-                    Find your next adventure!
-                </div>
-            </div> 
-        </div>  
-
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row">
-                <div class="input-field search col s12">
-                    <i class="fas fa-search prefix"></i>
-                    <input type="text" name="query" id="query" class="validate" required>
-                    <label for="query">Enter Author, Title, Genre</label>
-                </div>  
-            </div>
-                <div class="center-align"><a class="btn-small search-btn"><i class="fas fa-search left"></i>Search</a></div>
-        </form>
-    </div> 
+            <div class="col s12">
+                    <h4 class="search-heading">Come with me and you'll be in a world of pure imagination...</h4>
+                        <p class="search-text">Not sure what to read next?? Browse the reviews left 
+                            by our community and see what tickles your fancy!
+                        <br> Your next adventure awaits!</p>
+                
+                    <form action="{{ url_for('search') }}" method="post">
+                        <div class="row">
+                            <div class="input-field search col s12">
+                                <i class="fas fa-search prefix"></i>
+                                <input type="text" name="search" id="search" class="validate" required>
+                                <label for="search">Enter Author, Title, Genre</label>    
+                            </div> 
+                            <div>
+                            <button type="submit" class="btn-small search-btn"><i class="fas fa-search left"></i>Search</button> 
+                            </div>
+                        </div>
+                    </form>
+            </div>  
+        </div> 
+    </div>
 
 </main>
 {% endblock %}
