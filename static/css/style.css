@@ -243,6 +243,22 @@ footer p {
     margin: 0 auto 0 auto;
 }
 
+/* Flashe Messages */
+.flash.row {
+    background-color: #fafaed;
+    margin-bottom: 0;
+}
+.flash-message {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Tangerine', cursive;
+    line-height: 95%;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    color: #5a052c;
+}
+
 /* Cards */
 .card-container {
   margin: auto;
@@ -427,17 +443,10 @@ textarea {
     margin-top: 10px;
 }
 
-.txt-center {
-    text-align: center;
-}
+/* Star Rating */
 
 .hide {
     display: none;
-}
-
-.clear {
-    float: none;
-    clear: both;
 }
 
 .rating {
@@ -519,6 +528,8 @@ textarea {
 .review-rating {
     margin-bottom: 3px;
 }
+
+/* Heart Checkbox */
 
 .heart-checkbox {
     margin-bottom: 5px;
