@@ -346,57 +346,19 @@ footer p {
     margin-bottom: 5px;
 }
 
-/* Register */
+/* Forms */
 
-
-.register-heading {
-    color:#fafaed;
-    margin: 0 auto 0 auto;
-}
-
-form.register {
-    background-color: rgba(250, 250, 237, 0.7); 
-    border-radius: 5px; 
-}
-
-form .row,
-.input-field {
-    margin: 10px auto 5px auto;
-}
-
-.input-field label {
-    color:#420420;
-    font-weight: 600;
-}
-
-.input-field {
-    height: 2.25em;
-}
-
-.no-margin {
-    margin-bottom: 0;
-}
-
-.form-btn {
-    margin: 25px auto 0 auto;
-}
-.register-btn {
-    background-color: #420420;
-    color:#fafaed;
-    width: 6.25rem;
-}
-
-.register-btn:hover {
-    background-color: #5a052c; 
-}
-
-
-/* Review Add/Edit Forms */
 .form-container {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     margin-left:.5rem;
     margin-right:.5rem;
 }
+
+.form-bg-color {
+    background-color: rgba(250, 250, 237, 0.6); 
+    border-radius: 5px;
+}
+
 .collapsible {
     border: 0;
     margin: 0;
@@ -405,9 +367,9 @@ form .row,
 
 .collapsible-header {
     background-color: rgba(250, 250, 237, 0.1);
-    padding: 5px;
+    padding: 7px 5px 10px 10px;
     font-weight: 700;
-    font-size: 1.15rem;
+  /*  font-size: 1.15rem; */
     border: 0;
 }
 
@@ -423,8 +385,91 @@ textarea {
     padding: 0x;
 }
 
+.profile-collapsible {
+    margin-top: 10px;
+}
+
+.no-btm-margin {
+    margin-bottom: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.login-form {
+    margin-top: 2rem;
+}
+
+.login {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.form-text {
+    font-weight: 500;
+}
+
+.form-link {
+    color: #e61573;
+    font-weight: 500;
+}
+
+
+/* Form Headings */
+
+.form-heading {
+    color: #fafaed;
+    font-family: 'Tangerine', cursive;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+}
+
+/* Inputs */
+
+.input-field .prefix.active {
+    color: #e61573;
+}
+
+.input-field label {
+    color:#5a052c;
+    font-weight: 600;
+}
+
+form .row,
+.input-field {
+    margin: 10px auto 7px auto;
+}
+
+.input-field {
+    height: 2.3rem;
+}
+
+textarea[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label {
+    color: #e61573;
+}
+textarea[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #e61573;
+    box-shadow: none;
+}
+
+/* Form Buttons */
+
+.login-btn {
+    margin-top: 1.25rem;
+}
+
 .btn-small {
-    background-color: #420420;
+    background-color: #5a052c;
     color:#fafaed;
     border-radius: 3px;
 }
@@ -439,18 +484,17 @@ textarea {
     background-color: #e61573;
 }
 
-.profile-collapsible {
-    margin-top: 10px;
+.add-review-btn {
+    margin-bottom: 1rem;
 }
 
 /* Star Rating */
 
-.hide {
-    display: none;
+.rating-container {
+    line-height: 1;
 }
 
 .rating {
-    /* width: 90px; */
     unicode-bidi: bidi-override;  
     direction: rtl;
     text-align: center;
@@ -490,10 +534,6 @@ textarea {
     position: absolute;
     left: 0; 
     color: #FFD700;
-}
-
-.add-review-btn {
-    margin-bottom: 1rem;
 }
 
 /* Reviews */
@@ -671,7 +711,7 @@ textarea {
 /* Devices larger than mobile */
 @media only screen and (min-width: 768px) {
     .form-container {
-        margin-top: 6.25rem;
+        margin-top: .5rem;
     }
 }
 

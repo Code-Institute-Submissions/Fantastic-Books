@@ -5,10 +5,17 @@
 
 
 <main class="bg-image add-review-image responsive-img">
-    
+
+ <!-- Page Heading -->   
+    <div class="row no-btm-margin center-align">
+        <div class="col s10 offset-s1 m6 offset-m3">
+              <h1 class="form-heading">Add Review</h1>  
+        </div>
+    </div>
+
 <!-- Add Review Form-->
-    <div class="row no-margin form-container">
-        <form class="col s12 register m8 offset-m2" method="POST" action="{{ url_for('add_review') }}">
+    <div class="row form-container">
+        <form class="col s10 offset-s1 form-bg-color m6 offset-m3" method="POST" action="{{ url_for('add_review') }}">
             <div class="row">
                  <div class="input-field col s12">
                     <input  id="title" name="title" type="text" class="validate" required>
@@ -57,7 +64,7 @@
                         <div class="collapsible-header">Synopsis <i class="fas fa-angle-down"></i></div>
                         <div class="collapsible-body">
                             <textarea id="synopsis" name="synopsis" type="text" class="validate" required></textarea>
-                            <label for="synopsis">Synopsis</label>
+                            <label for="synopsis" class="hide">Synopsis</label>
                         </div>
                     </li>
             
@@ -65,13 +72,13 @@
                         <div class="collapsible-header">Review <i class="fas fa-angle-down"></i></div>
                         <div class="collapsible-body">
                             <textarea id="review" name="review" type="text"  class="validate" required></textarea>
-                            <label for="review">Review</label>
+                            <label for="review" class="hide">Review</label>
                         </div>
                     </li>
                 </ul>    
             </div>
             
-            <div class="row txt-center">
+            <div class="row rating-container center-align">
                 <div class="rating col s6 push-s2 m6 push-m1">
                     <input id="star5" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
                     <label for="star5"><i class="fas fa-star"></i></label>
@@ -83,7 +90,6 @@
                     <label for="star2"><i class="fas fa-star"></i></label>
                     <input id="star1" name="star" type="radio" value="&#11088;" class="radio-btn hide" />
                     <label for="star1"><i class="fas fa-star"></i></label>
-                    <div class="clear"></div>
                 </div>
             </div>
             

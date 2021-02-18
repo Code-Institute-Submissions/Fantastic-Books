@@ -4,6 +4,7 @@
 
 
 <main class="bg-image profile-image responsive-img">
+
 <!-- Search Bar-->
     <section>
         <div class="row no-margin">
@@ -104,7 +105,7 @@
                </ul>
     {% else %}
                 <h3>You have no reviews </h3>
-                    <a href="{{ url_for('add_review') }}" type="submit" class="btn center-align">
+                    <a href="{{ url_for('add_review') }}" type="submit" class="btn btn-small center-align">
                         Add Review </a>
     {% endif %} 
      
@@ -203,7 +204,6 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div id="delete" class="tabcontent">
-                <h3 class="center-align tab-heading">Delete Profile</h3>
                 <button data-target="profile_delete" class="btn-small modal-trigger">Delete Profile</button>   
             </div>
             <div id="profile_delete" class="modal">
