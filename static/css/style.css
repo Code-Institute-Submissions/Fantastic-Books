@@ -10,7 +10,7 @@ header {
 }
 
 body {
-    color: #720737;
+    color: #5a052c;
     font-family: 'Lato', sans-serif;
 }
 
@@ -102,7 +102,7 @@ form.search-bar input[type=text] {
 }
 
 form ::placeholder {
-    color:#420420;
+    color: #5a052c;
     padding-left: 5px;
     
 }
@@ -243,7 +243,7 @@ footer p {
     margin: 0 auto 0 auto;
 }
 
-/* Flashe Messages */
+/* Flash Messages */
 .flash.row {
     background-color: #fafaed;
     margin-bottom: 0;
