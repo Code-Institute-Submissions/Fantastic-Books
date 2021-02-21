@@ -482,6 +482,14 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
     box-shadow: none;
 }
 
+textarea[type=text]:not(.browser-default),
+input[type=text]:not(.browser-default),
+input[type=url]:not(.browser-default),
+input[type=password]:not(.browser-default),
+input[type=email]:not(.browser-default) {
+    border-bottom: 1px solid #5a052c;
+}
+
 /* Form Buttons */
 
 .login-btn {
@@ -591,6 +599,11 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
     margin-bottom: 3px;
 }
 
+.mobile-btn {
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
 /* Heart Checkbox */
 
 .heart-checkbox {
@@ -660,20 +673,22 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
     width: 90%;
     margin: auto;
     background-color: rgba(250, 250, 237, 0.8);
-    margin-top: 7.8rem;
+    margin-top: 6rem;
     border-radius: 5px;
 }
 .search-heading {
     font-family: 'Tangerine', cursive;
     font-weight: 700;
     font-size: 4rem;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .search-text {
     font-weight: 500;
-    font-size: 1.25rem;
     color: #720737;
 }
+
 .search-btn {
     margin-bottom: .675rem;
     margin-top: 1.25rem;
@@ -727,16 +742,7 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
     background-color: #e61573;
 }
 
-
 /* Media Queries */
-
-/* Devices larger than mobile */
-@media only screen and (min-width: 768px) {
-    .form-container {
-        margin-top: .5rem;
-    }
-}
-
 /* Mobile devices */
 @media only screen and (max-width: 768px) {
     /* Navbar */
@@ -767,7 +773,7 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
     }
 
     .book-cover {
-        margin: auto;
+        margin-right: 30px;
         margin-top: 7px;
     }
 
