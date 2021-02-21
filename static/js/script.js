@@ -19,3 +19,6 @@ setTimeout(()=> {
 //dynamically set copyright date
     let date = document.getElementById('date');
     date.textContent = new Date().getFullYear();
+
+  
+

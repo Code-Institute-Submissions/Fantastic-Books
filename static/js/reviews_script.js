@@ -21,3 +21,34 @@ function scrollUp() {
 }
 
 document.getElementById("scrollToTop").addEventListener("click", scrollUp);
+
+
+/* Hide Clear Results Btn until Search is performed
+/*
+document.getElementById("search-submit").addEventListener("submit", manageBtn);
+document.getElementById("search").addEventListener("input", manageBtn)
+*/
+
+document.getElementById("submitBtn").addEventListener("click", manageBtn)
+
+function manageBtn() {
+     document.getElementsByClassName("clear").style.display = "block";
+};
+
+
+/* 
+let id, 
+    i, 
+    inputs = document.getElementsByClassName('review-search');
+    for (i = 0; i < inputs.length; i++){  
+        if (inputs[i].type == 'text' && (inputs[i].value == '' || inputs[i].value == 'n/a'))  {    
+            document.getElementById('clear-results' + inputs[i].id).style.display = 'none';  
+        };
+    };
+    */
+
+document.getElementById("submitBtn").onclick = function() {manageBtn()};
+
+function manageBtn() {
+  document.querySelectorAll("clear").style.display = "block";
+}
