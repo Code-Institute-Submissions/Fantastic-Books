@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
+
     <title>Fantastic Books And Where To Find Them</title>
 </head>
 
@@ -68,7 +69,7 @@
                 {% for message in messages %}
                     <div id="flashMessage{{loop.index}}" class="flash row">
                          <div class="col s12 m6 offset-m3">
-                        <h4 class="center-align flash-message">{{ message }}</h4>
+                            <h4 class="center-align flash-message">{{ message }}</h4>
                         </div>
                     </div>
                 {% endfor %}
@@ -84,7 +85,9 @@
     <div class="container center-align">
         <div class="row">
             <div class="col s12">
-                <p><small>copyright &copy; <span id="date"> </span> Aine O Neill. For educational purposes only </small></p>
+                <p>
+                    <small>copyright &copy; <span id="date"> </span> Aine O Neill. For educational purposes only </small>
+                </p>
             </div> 
         </div>
     </div>
@@ -97,4 +100,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>
