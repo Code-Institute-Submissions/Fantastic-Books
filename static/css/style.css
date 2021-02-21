@@ -300,6 +300,7 @@ blockquote {
     font-family: 'Tangerine', cursive;
     font-size: 4rem;
     text-transform: capitalize;
+    margin-top: 0;
 }
 
 /* Profile Tabs */
@@ -496,6 +497,7 @@ input.valid[type=password]:not(.browser-default),
 input.valid[type=email]:not(.browser-default) {
     border-bottom: 1px solid #720737;
 }
+
 /* Form Buttons */
 
 .login-btn {
@@ -584,10 +586,12 @@ input.valid[type=email]:not(.browser-default) {
 .profile-book-cover,
 .book-cover {
     display: flex;
-    max-height: 15rem;
-    max-width: 9.5rem;
     margin-top: .625rem;
     margin-bottom: 5px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .book-title {
@@ -640,6 +644,7 @@ input.valid[type=email]:not(.browser-default) {
 
 .buy-btn {
     margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 /*Scroll Up Btn*/
@@ -749,6 +754,7 @@ input.valid[type=email]:not(.browser-default) {
 }
 
 /* Media Queries */
+
 /* Mobile devices */
 @media only screen and (max-width: 768px) {
     /* Navbar */
@@ -788,19 +794,15 @@ input.valid[type=email]:not(.browser-default) {
     }
 
     /* Profile */
-    .profile-welcome{
+   .profile-welcome{
         margin-top: 2rem;
-    }
+    } 
 
     .tab-container {
         margin-top: 1.5rem;
         width: 90vw;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    .review-rating {
-        text-align: center;
     }
 
     /* Tabs */
