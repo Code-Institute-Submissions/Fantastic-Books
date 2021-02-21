@@ -20,12 +20,16 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+date = date.today()
+
+
 @app.route("/")
 @app.route("/index")
 def index():
     return render_template("index.html")
 
 
+# Register user in the db
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -37,12 +41,22 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
+        # check if email already exists in db
+        existing_email = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_email:
+            flash("Email already registered")
+            return redirect(url_for("register"))
+
         register = {
             "firstname": request.form.get("firstname").lower(),
             "lastname": request.form.get("lastname").lower(),
             "username": request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "favourites": [],
+            "date_created": date.strftime("%d %b %Y")
         }
         mongo.db.users.insert_one(register)
 
@@ -54,6 +68,7 @@ def register():
     return render_template("register.html")
 
 
+# Log existing user into site
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -66,8 +81,6 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
@@ -104,9 +117,6 @@ def profile(username):
 def reviews():
     reviews = list(mongo.db.reviews.find())
     return render_template("reviews.html", reviews=reviews)
-
-
-date = date.today()
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -171,6 +181,14 @@ def add_favourite(review_id):
                 "favourites": ObjectId(review_id)}})
         flash("Review added to favourites")
         return redirect(url_for("reviews"))
+
+
+@app.route("/get_favourites")
+def get_favourites():
+    user = mongo.db.users.find_one(
+        {"username": session["user"].lower()})
+    user_favourites = mongo.db.users.find(user["favourites"])
+    favourite_reviews = []
 
 
 @app.route("/remove_favourite/<review_id>")
