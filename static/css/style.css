@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Tangerine:wght@400;700&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -52,8 +52,7 @@ nav a {
     font-family: 'Tangerine', cursive;
     font-weight: 700;
     font-size: 4rem;
-    padding-left: 5px;
-   
+    padding-left: 5px;   
 }
 
 .sidenav-overlay {
@@ -299,14 +298,14 @@ blockquote {
     color: #fafaed;
     font-weight: 700;
     font-family: 'Tangerine', cursive;
-    font-size: 4.5rem;
+    font-size: 4rem;
     text-transform: capitalize;
 }
 
 /* Profile Tabs */
 
 .tab-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .tabcontent{
@@ -490,6 +489,13 @@ input[type=email]:not(.browser-default) {
     border-bottom: 1px solid #5a052c;
 }
 
+textarea.valid[type=text]:not(.browser-default),
+input.valid[type=text]:not(.browser-default),
+input.valid[type=url]:not(.browser-default),
+input.valid[type=password]:not(.browser-default),
+input.valid[type=email]:not(.browser-default) {
+    border-bottom: 1px solid #720737;
+}
 /* Form Buttons */
 
 .login-btn {
@@ -785,6 +791,7 @@ input[type=email]:not(.browser-default) {
     .profile-welcome{
         margin-top: 2rem;
     }
+
     .tab-container {
         margin-top: 1.5rem;
         width: 90vw;
