@@ -101,7 +101,7 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    # find reivews created by user
     if session["user"]:
         my_reviews = list(mongo.db.reviews.find(
             {"created_by": session["user"]}).sort("title", 1))
@@ -157,10 +157,12 @@ def edit_review(review_id):
             "buy": request.form.get("buy"),
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
-            "created_by": session["user"]
+            "rating": request.form.get("star"),
+            "created_by": session["user"],
+            "date_created": date.strftime("%d %b %Y")
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, update)
-        flash("")
+        flash("Your review has been updated")
         return redirect(url_for("reviews"))
 
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
@@ -203,6 +205,7 @@ def remove_favourite(review_id):
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Your review has been deleted")
     return redirect(url_for("profile", username=session["user"]))
 
 
