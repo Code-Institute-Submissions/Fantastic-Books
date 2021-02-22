@@ -137,7 +137,6 @@ form.search-bar::after {
 
 .reviews-image {
     background: url("../images/field_book.png"); 
-    background-attachment: fixed;
 }
 
 .add-review-image {
@@ -178,6 +177,7 @@ form.search-bar::after {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Footer */
@@ -614,12 +614,19 @@ input.valid[type=email]:not(.browser-default) {
     margin-right: 10px;
 }
 
+.buy-btn {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* Heart Checkbox */
 
+.broken-heart-checkbox,
 .heart-checkbox {
     margin-bottom: 5px;
 }
 
+.broken-heart-checkbox input[type='checkbox'], 
 .heart-checkbox input[type='checkbox'] {
     display:none;
 }
@@ -632,20 +639,22 @@ input.valid[type=email]:not(.browser-default) {
     color: red;
 }
 
+.broken-heart-checkbox input[type='checkbox']:checked + label:before,
 .heart-checkbox input[type='checkbox']:checked + label:before {
      font-weight:600;
-     color: red;
 }
 
+.broken-heart-checkbox label,
 .heart-checkbox label {
      color: #720737;
      font-weight: 500;
 }
 
-.buy-btn {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-}
+.broken-heart-checkbox input[type='checkbox']+ label:before {
+    content: "\1F494";
+	font-size:1.5rem;
+    cursor:pointer;
+ }
 
 /*Scroll Up Btn*/
 
