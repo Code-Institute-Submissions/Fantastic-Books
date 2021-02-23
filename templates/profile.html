@@ -34,10 +34,10 @@
                 <div class="row">
                     <div class="col s12 m10 offset-m1">
                         <div class="tab center-align">
-                            <button class="tablinks" onclick="openTab(event, 'books')">My Saved Books</button>
+                            <button class="tablinks" onclick="openTab(event, 'books')">My Favourites</button>
                             <button class="tablinks" onclick="openTab(event, 'reviews')">My Reviews</button>
                             <button class="tablinks" onclick="openTab(event, 'add-review')">Add Review</button>
-                            <button class="tablinks" onclick="openTab(event, 'delete')">Delete Profile</button>
+                            <button class="tablinks" onclick="openTab(event, 'delete')">Delete Account</button>
                         </div>
                     </div>
                 </div>
@@ -47,6 +47,11 @@
         <div class="row">
             <div class="col s12 m10 offset-m1">
                 <div id="books" class="tabcontent">
+                {% if fav_review|length > 0 %}
+                      <a href="{{ url_for('reviews') }}" class="btn btn-small right">
+                            Find Books! 
+                        </a>
+                {% endif %}        
                     <ul>
                 {% for review in fav_review %}  
                         <li>
@@ -62,7 +67,7 @@
                                     <br> Genre: {{ review.genre }} 
                                     <br> Published: {{ review.published }}
                                     </p>
-                                    <div>
+                                    <div class="review-rating">
                                         {{ review.rating}}
                                     </div>
                                     <form method="POST" action="{{ url_for('remove_favourite', review_id=review._id) }}">   
@@ -83,13 +88,12 @@
                                             <div class="collapsible-body"> {{ review.review }}</div>
                                         </li>
                                     </ul>
-                                            
+                                        <a href="{{ review.buy }}" target="_blank" class="btn-small buy-btn center-align">Buy</a>         
                                 </div>
                             </div>
                         </li>                       
                   {% else %}
                     </ul>
-          
                         <h3>You have no books saved </h3>
                         <a href="{{ url_for('reviews') }}" class="btn btn-small center-align">
                             Find Books! 
@@ -120,7 +124,7 @@
                                     <br> Genre: {{ review.genre }} 
                                     <br> Published: {{ review.published }}
                                     </p>
-                                    <div>
+                                    <div class="review-rating">
                                         {{ review.rating}}
                                     </div>
                                     <ul class="collapsible">
@@ -251,17 +255,18 @@
                 <div id="delete" class="tabcontent">
                     <h4>Delete Profile</h4>
                     <div class="delete"> 
-                        <button data-target="profile_delete" class="btn-small modal-trigger">Delete Profile</button> 
+                        <button data-target="account_delete" class="btn-small modal-trigger">Delete Account</button> 
                     </div>  
                 </div>
-                    <div id="profile_delete" class="modal">
+                    <div id="account_delete" class="modal">
                         <div class="modal-content">
                             <h4>Confirm Delete</h4>
-                            <p>Are you sure you want to delete your profile?</p>
+                            <p>Are you sure you want to delete your account?</p>
+                            <p>All your reviews and other content will also be deleted</p>
                         </div>
                         <div class="modal-footer">
                             <button href="#!" class="modal-close btn-small">Cancel</button>
-                            <a href="{{ url_for('delete_profile', user_id=user._id) }}" class="btn-small">Delete Profile</a>
+                            <a href="{{ url_for('delete_profile', user_id=user._id) }}" class="btn-small">Delete Account</a>
                         </div>
                     </div>
                 </div>
