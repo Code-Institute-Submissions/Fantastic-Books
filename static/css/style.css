@@ -83,7 +83,7 @@ form.search-bar input[type=text] {
     font-size: 1.2rem;
     border-radius: 5px 0 0 5px;
     float: left; 
-    width: 80%;
+    width: 70%;
     background: rgba(250, 250, 237, 0.7);
     border-bottom: none;
     height: 1.75em;
@@ -109,6 +109,7 @@ form.search-bar button {
 
 form.search-bar button:hover {
     background-color: #952055;
+    border-color: #952055;
 }
 
 form.search-bar::after {
@@ -116,7 +117,6 @@ form.search-bar::after {
     clear: both;
     display: table;
 } 
-
 
 /* Background Images */
 .home-image{ 
@@ -230,7 +230,7 @@ footer p {
 .welcome-container {
   margin: auto;
   background-color: rgba(250, 250, 237, 0.8);
-  margin-top: 8rem;
+  margin-top: 6rem;
   border-radius: 5px;
 }
 
@@ -576,6 +576,33 @@ input.valid[type=email]:not(.browser-default) {
 
 /* Reviews */
 
+.mobile-reviews-btn {
+    background-color: #420420;
+    color:#fafaed;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.mobile-reviews-btn:focus,
+.mobile-reviews-btn:active,
+.mobile-reviews-btn:visited {
+    background-color: #420420;
+}
+
+.mobile-reviews-btn:hover {
+    background-color: #952055;
+}
+
+.clear-btn {
+    margin-right: 3rem;  
+    padding: 0 7px 10px 7px;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 1.75em;
+    align-content: center;
+}
+
 .reviews {
     width: 50%;
     margin: auto;
@@ -657,13 +684,13 @@ input.valid[type=email]:not(.browser-default) {
     cursor:pointer;
  }
 
-/*Scroll Up Btn*/
+/*Scroll Up Btns*/
 
+#scrollToTopProfile,
 #scrollToTop {
     display: none;
     position: fixed;
-    bottom: 3.5rem;
-    right: 5rem;
+    bottom: 3.5rem; 
     background-color: #420420;
     border: 1px solid #420420;
     border-radius: 5px;
@@ -674,16 +701,29 @@ input.valid[type=email]:not(.browser-default) {
     outline: none;
 }
 
+#scrollToTop {
+    right: 5rem;
+}
+
+#scrollToTopProfile {
+    right: 10rem;
+}
+
+#scrollToTopProfile:focus,
+#scrollToTopProfile:active,
+#scrollToTopProfile:visited,
 #scrollToTop:focus,
 #scrollToTop:active,
 #scrollToTop:visited {
     background-color: #420420;
 }
 
+#scrollToTopProfile:hover,
 #scrollToTop:hover {
     background-color: #952055;
 }
 
+#scrollToTopProfile i,
 #scrollToTop i {
     font-size: 1.75rem;
 }
@@ -692,18 +732,20 @@ input.valid[type=email]:not(.browser-default) {
 
 .mobile-search-container {
     width: 90%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
     background-color: rgba(250, 250, 237, 0.8);
-    margin-top: 6rem;
     border-radius: 5px;
 }
 .search-heading {
     font-family: 'Tangerine', cursive;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #420420;
     padding-right: 5px;
     padding-left: 5px;
+    line-height: 100%;;
 }
 
 .search-text {
@@ -764,32 +806,60 @@ input.valid[type=email]:not(.browser-default) {
 }
 
 /* Media Queries */
+/* Laptop */
+@media only screen and (max-width: 1024px) {
+    .clear-btn {
+        margin-right: 2rem;
+    }
+
+}
+
+/* Tablet */
+@media only screen and (max-width: 992px) {
+    .clear-btn {
+        margin-right: 0;
+    }
+
+    .rating > label {
+    font-size: 1.5rem;
+    }
+}
 
 /* Mobile devices */
 @media only screen and (max-width: 768px) {
     /* Navbar */
     nav .brand-logo {
         padding-top: 5px;
+        padding-left: 1.5rem;
+        font-size: 3rem;
+        left: 30%;
+        text-align: center;
     }
     /* Home Page */
     .welcome-container {
-        margin-top: 6rem;
+        margin-top: 2rem;
     }
 
     .title {
-        font-size: 3.125rem;
+        font-size: 3rem;
         padding-left: 1rem;
         padding-right: 1rem;
+        line-height: normal;
     }
     .sub-title {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
+        line-height: normal;
     }
 
     .tagline {
-        font-size: 2.25rem;
+        font-size: 2rem;
+        line-height: normal;
     }
 
     /* Reviews */
+    .reviews {
+        width: 80%;
+    }
 
     .review-btn-container {
         text-align: center;
@@ -800,8 +870,14 @@ input.valid[type=email]:not(.browser-default) {
         margin-top: 7px;
     }
 
+    #scrollToTopProfile,
     #scrollToTop {
-        right: 2.5rem;
+        right: 1rem;
+    }
+
+    #scrollToTopProfile i,
+    #scrollToTop i {
+    font-size: 1rem;
     }
 
     /* Profile */
@@ -818,13 +894,29 @@ input.valid[type=email]:not(.browser-default) {
 
     /* Tabs */
     .tab button {
-        padding: 10px 9px; 
+        padding: 10px 20px; 
+    }
+
+    .find-btn {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     /* Forms */
-    .form-container {
-        margin-top: 0;
+    .form-heading {
+        font-size: 2.5rem;
     }
+    .form-container {
+        margin: 10px;
+    }
+
+    textarea[type=text]:not(.browser-default),
+    input[type=text]:not(.browser-default),
+    input[type=url]:not(.browser-default),
+    input[type=password]:not(.browser-default),
+    input[type=email]:not(.browser-default) {
+        font-size: 12px;
+}
 
     /* 404.html */
     .f404 {

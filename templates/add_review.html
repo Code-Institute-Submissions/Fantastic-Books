@@ -18,7 +18,7 @@
 <!-- Add Review Form-->
 <section>
     <div class="row form-container">
-        <form class="col s10 offset-s1 form-bg-color m6 offset-m3" method="POST" action="{{ url_for('add_review') }}">
+        <form class="col s12 form-bg-color m6 offset-m3" method="POST" action="{{ url_for('add_review') }}">
             <div class="row">
                  <div class="input-field col s12">
                     <input  id="title" name="title" type="text" class="validate" required>
@@ -82,7 +82,7 @@
             </div>
             
             <div class="row rating-container center-align">
-                <div class="rating col s6 offset-s3 m4 offset-m4">
+                <div class="rating col s8 offset-s2 m6 offset-m3 l4 offset-l4">
                     <input id="star5" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
                     <label for="star5"><i class="fas fa-star"></i></label>
                     <input id="star4" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />

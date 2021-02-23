@@ -18,7 +18,7 @@
     </section>
 
 <!-- Welcome Heading-->
-    <section>
+    <section class="hide-on-small-only">
         <div class="no-btm-margin row">
             <div class="col s8 offset-s2 m6 offset-m3">
                     <h4 class="center-align profile-welcome">
@@ -48,7 +48,7 @@
             <div class="col s12 m10 offset-m1">
                 <div id="books" class="tabcontent">
                 {% if fav_review|length > 0 %}
-                      <a href="{{ url_for('reviews') }}" class="btn btn-small right">
+                      <a href="{{ url_for('reviews') }}" class="btn btn-small find-btn right">
                             Find Books! 
                         </a>
                 {% endif %}        
@@ -224,7 +224,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="rating col s6 offset-s3 m6 push-m1">
+                                <div class="rating col s12 m6 offset-m3 pull-m1 l4 offset-l4 pull-l1">
                                     <input id="star5" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
                                         <label for="star5"><i class="fas fa-star"></i></label>
                                     <input id="star4" name="star" type="radio" value="&#11088; &#11088; &#11088; &#11088;" class="radio-btn hide" />
@@ -252,7 +252,7 @@
 <!-- Delete Profile -->    
         <div class="row">
             <div class="col s12 m10 offset-m1">
-                <div id="delete" class="tabcontent">
+                <div id="delete" class="tabcontent center-align">
                     <h4>Delete Profile</h4>
                     <div class="delete"> 
                         <button data-target="account_delete" class="btn-small modal-trigger">Delete Account</button> 
@@ -275,6 +275,11 @@
         </div>
 
     </section>
+
+    <div>
+        <button id="scrollToTopProfile" title="Go to top" class="btn-small"><i class="fas fa-angle-double-up"></i></button>
+    </div>
+
 </main>
 
 {% endblock %}

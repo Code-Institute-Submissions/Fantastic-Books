@@ -7,24 +7,29 @@
     
 <!-- Search Bar-->
 <section>
-    <div class="row no-margin search-container reviews-page">
+    <div class="row search-container">
         <form action="{{ url_for('search') }}" method="post" class="search-bar">
             <div class="input-field col m4 offset-m8 hide-on-small-only">
                 <input type="text" name="search" id="search" minlength="3" required placeholder="Search title, author, genre..">
                 <label for="search" class="hide"></label>
-                <button type="submit" id="submitBtn"><i class="fas fa-search"></i></button> 
-            </div>
-             <div>
-                <a href="{{ url_for('search_mobile') }}" class="hide-on-med-and-up btn-small mobile-btn right"><i class="fas fa-search"></i></a>
-            </div>
-            <div class="col s6 offset-s6 m4 offset-m8 center-align">
-                <a href="{{ url_for('reviews') }}" class="clear btn-small hide-on-small-only hide">Clear Results</a>
-                <a href="{{ url_for('reviews') }}" class="clear btn-small right hide-on-med-and-up hide">Clear Results</a>               
-            </div>
-           
+                <button type="submit" id="submitBtn">
+                    <i class="fas fa-search"></i></button>             
+                <a href="{{ url_for('reviews') }}" class="btn-small clear-btn hide-on-small-only btn tooltipped right" data-position="bottom" data-tooltip="Clear Results">
+                    <i class="fas fa-redo-alt"></i>
+                </a>       
+             </div>
         </form>
+            <div>
+                <a href="{{ url_for('reviews') }}" class="hide-on-med-and-up mobile-reviews-btn btn tooltipped right" data-position="bottom" data-tooltip="Clear Results">
+                    <i class="fas fa-redo-alt"></i>
+                </a>
+                <a href="{{ url_for('search_mobile') }}" class="hide-on-med-and-up btn tooltipped mobile-reviews-btn right" data-position="bottom" data-tooltip="Search Reviews">
+                    <i class="fas fa-search"></i>    
+                </a>
+            </div>            
     </div>
 </section>  
+
 
 
 <!-- Displays All Reviews-->
