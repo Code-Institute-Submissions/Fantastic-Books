@@ -757,6 +757,15 @@ input.valid[type=email]:not(.browser-default) {
     margin-top: 1.25rem;
 }
 
+/* Manage Users */
+
+.manage_users {
+    background-color: #d9ccd2;
+}
+.delete-btn {
+    margin-bottom: 1rem;
+}
+
 /*404.html*/
 
 .f404 {

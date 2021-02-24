@@ -34,7 +34,10 @@
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                     <li><a href="{{ url_for('reviews') }}">Reviews</a></li>
                     <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
-                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('manage_users') }}">Manage Users</a></li>
+                    {% endif %} 
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>     
                 {% else %} 
                     <li><a href="{{ url_for('login') }}">Log In</a></li> 
                     <li><a href="{{ url_for('register') }}">Sign Up</a></li>
@@ -53,7 +56,10 @@
                 <li><a href="{{ url_for('reviews') }}">Reviews</a></li>
                 <li><a href="{{ url_for('add_review') }}">Add Review</a></li>
                 <li><a href="{{ url_for('search_mobile') }}">Search</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('manage_users') }}">Manage Users</a></li>
+                {% endif %}   
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li> 
               {% else %} 
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Sign Up</a></li>

@@ -109,7 +109,7 @@ def profile(username):
             {"username": session["user"]})
         user_favourites = user["favourites"]
         fav_review = []
-
+    # get user favourites and display them on profile page
         for fav in user_favourites:
             review = mongo.db.reviews.find_one({"_id": ObjectId(fav)})
             fav_review.append(review)
@@ -130,7 +130,7 @@ def reviews():
 def add_review():
     if request.method == "POST":
         default_url = ("https://www.bookdepository.com/")
-        default_img = "static/images/no_cover.png"
+        default_img = ("static/images/no_cover.png")
         review = {
             "title": request.form.get("title"),
             "author": request.form.get("author"),
@@ -198,7 +198,7 @@ def remove_favourite(review_id):
         user = mongo.db.users.find_one({"username": session["user"].lower()})
         mongo.db.users.update_one(user, {
             "$pull": {"favourites": ObjectId(review_id)}})
-        flash("Removed from favourites")
+        flash("Review removed from favourites")
         return redirect(url_for("profile", username=session["user"]))
 
 
@@ -236,6 +236,12 @@ def delete_profile(user_id):
     flash("Your Profile has been deleted")
     session.clear()
     return redirect(url_for("index"))
+
+
+@app.route("/manage_users")
+def manage_users():
+    users = list(mongo.db.users.find())
+    return render_template("manage_users.html", users=users)
 
 
 @app.errorhandler(404)
