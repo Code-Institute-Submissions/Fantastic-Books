@@ -23,6 +23,7 @@ mongo = PyMongo(app)
 date = date.today()
 
 
+# Renders home page
 @app.route("/")
 @app.route("/index")
 def index():
@@ -49,6 +50,7 @@ def register():
             flash("Email already registered")
             return redirect(url_for("register"))
 
+        # add user details to the database
         register = {
             "firstname": request.form.get("firstname").lower(),
             "lastname": request.form.get("lastname").lower(),
@@ -96,6 +98,7 @@ def login():
     return render_template("login.html")
 
 
+# Render users profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
@@ -120,17 +123,20 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Displays all reviews in the db
 @app.route("/reviews")
 def reviews():
     reviews = list(mongo.db.reviews.find())
     return render_template("reviews.html", reviews=reviews)
 
 
+# Allows user to add a review to the db
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
         default_url = ("https://www.bookdepository.com/")
         default_img = ("static/images/no_cover.png")
+        default_rating = "No Stars Awarded"
         review = {
             "title": request.form.get("title"),
             "author": request.form.get("author"),
@@ -141,7 +147,7 @@ def add_review():
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
             "created_by": session["user"],
-            "rating": request.form.get("star"),
+            "rating": request.form.get("star") or default_rating,
             "date_created": date.strftime("%d %b %Y")
         }
         mongo.db.reviews.insert_one(review)
@@ -152,36 +158,42 @@ def add_review():
     return render_template("add_review.html", reviews=reviews)
 
 
+# Allows user to edit review they have created
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
+        default_url = ("https://www.bookdepository.com/")
+        default_img = ("static/images/no_cover.png")
+        default_rating = "No Stars Awarded"
         update = {
             "title": request.form.get("title"),
             "author": request.form.get("author"),
             "genre": request.form.get("genre"),
             "published": request.form.get("published"),
-            "cover": request.form.get("cover"),
-            "buy": request.form.get("buy"),
+            "cover": request.form.get("cover") or default_img,
+            "buy": request.form.get("buy") or default_url,
             "synopsis": request.form.get("synopsis"),
             "review": request.form.get("review"),
-            "rating": request.form.get("star"),
+            "rating": request.form.get("star") or default_rating,
             "created_by": session["user"],
             "date_created": date.strftime("%d %b %Y")
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, update)
         flash("Your review has been updated")
-        return redirect(url_for("reviews"))
+        return redirect(url_for("profile", username=session["user"]))
 
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     reviews = mongo.db.reviews.find().sort("title", 1)
     return render_template("edit_review.html", review=review, reviews=reviews)
 
 
+# Allows user to save another users review as a favourite
 @app.route("/add_favourite/<review_id>", methods=["GET", "POST"])
 def add_favourite(review_id):
     if request.method == "POST":
         user = mongo.db.users.find_one({"username": session["user"].lower()})
         favourites = mongo.db.users.find_one(user)["favourites"]
+        # if user has already saved that review
         if ObjectId(review_id) in favourites:
             flash("Review Already Saved")
             return redirect(url_for("reviews"))
@@ -192,6 +204,7 @@ def add_favourite(review_id):
         return redirect(url_for("reviews"))
 
 
+# Allows user to remove a reviews from their favourites
 @app.route("/remove_favourite/<review_id>", methods=["GET", "POST"])
 def remove_favourite(review_id):
     if request.method == "POST":
@@ -202,13 +215,15 @@ def remove_favourite(review_id):
         return redirect(url_for("profile", username=session["user"]))
 
 
+# Allows user to delete a review
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
-    flash("Your review has been deleted")
+    flash("Review has been deleted")
     return redirect(url_for("profile", username=session["user"]))
 
 
+# Allows user to search all reviews in the db and returns the result
 @app.route("/search", methods=["GET", "POST"])
 def search():
     search = request.form.get("search")
@@ -216,11 +231,13 @@ def search():
     return render_template("reviews.html", reviews=reviews)
 
 
+# Renders search page for small devices
 @app.route("/search_mobile")
 def search_mobile():
     return render_template("search_mobile.html")
 
 
+# Logs user out of their account
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -229,24 +246,43 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Deletes user account
 @app.route("/delete_profile/<user_id>")
 def delete_profile(user_id):
     mongo.db.reviews.remove({"created_by": session['user']})
     mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("Your Profile has been deleted")
+    flash("Your profile has been deleted")
     session.clear()
     return redirect(url_for("index"))
 
 
+# Lists all users in the db
 @app.route("/manage_users")
 def manage_users():
     users = list(mongo.db.users.find())
     return render_template("manage_users.html", users=users)
 
 
+# Allows admin to delete any review
+@app.route("/delete_review_admin/<review_id>")
+def delete_review_admin(review_id):
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review has been deleted")
+    return redirect(url_for("reviews"))
+
+
+# Allows sdmin to delete any user
+@app.route("/delete_account_admin/<user_id>")
+def delete_account_admin(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("Profile has been deleted")
+    return redirect(url_for("manage_users"))
+
+
+# 404 error page
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('404.html', title='404'), 404
+    return render_template("404.html", title='404'), 404
 
 
 if __name__ == "__main__":
