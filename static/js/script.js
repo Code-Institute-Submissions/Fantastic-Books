@@ -5,6 +5,8 @@
      let collapsiblesInstance = M.Collapsible.init(collapsibles);
      let modals = document.querySelectorAll('.modal');
      let modalInstances = M.Modal.init(modals);
+     let tooltips = document.querySelectorAll('.tooltipped');
+     let tooltipInstances = M.Tooltip.init(tooltips);
   });
 
 
