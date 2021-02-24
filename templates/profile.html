@@ -10,7 +10,7 @@
         <div class="no-btm-margin row">
             <div class= "col m4 offset-m8 search-container hide-on-small-only">
                 <form class="search-bar" method="POST" action="{{ url_for('search') }}">
-                    <input type="text" name="search" id="search" placeholder="Enter Author, Title or Genre...">
+                    <input type="text" name="search" id="search" minlength="3" placeholder="Enter Author, Title or Genre...">
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
@@ -269,6 +269,7 @@
                         <button data-target="account_delete" class="btn-small modal-trigger">Delete Account</button> 
                     </div>  
                 </div>
+                    <!-- Confirm Delete Modal-->
                     <div id="account_delete" class="modal">
                         <div class="modal-content">
                             <h4>Confirm Delete</h4>
