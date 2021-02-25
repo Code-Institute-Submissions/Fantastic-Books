@@ -9,7 +9,7 @@
      let tooltipInstances = M.Tooltip.init(tooltips);
   });
 
-
+// Hide flash messages after 2secs
 setTimeout(()=> {
     flash_message = document.getElementsByClassName("flash");
     for (let i = 0; i < flash_message.length; i++) {
@@ -18,7 +18,7 @@ setTimeout(()=> {
 }, 2000);
  
 
-//dynamically set copyright date
+// Dynamically set copyright date
     let date = document.getElementById('date');
     date.textContent = new Date().getFullYear();
 
