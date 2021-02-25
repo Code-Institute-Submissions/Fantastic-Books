@@ -74,12 +74,13 @@ nav a {
 }
 
 .search-bar {
-    background-color: none;
+    background-color: transparent;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 form.search-bar input[type=text] {
-    padding: 10 10 0 10; 
     font-size: 1.2rem;
     border-radius: 5px 0 0 5px;
     float: left; 
@@ -87,6 +88,26 @@ form.search-bar input[type=text] {
     background: rgba(250, 250, 237, 0.7);
     border-bottom: none;
     height: 1.75em;
+}
+
+form ::-webkit-input-placeholder {
+    color: #5a052c;
+    padding-left: 5px;    
+}
+
+form ::-moz-placeholder {
+    color: #5a052c;
+    padding-left: 5px;    
+}
+
+form :-ms-input-placeholder {
+    color: #5a052c;
+    padding-left: 5px;    
+}
+
+form ::-ms-input-placeholder {
+    color: #5a052c;
+    padding-left: 5px;    
 }
 
 form ::placeholder {
@@ -104,6 +125,7 @@ form.search-bar button {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     height: 1.75em;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 
@@ -152,30 +174,12 @@ form.search-bar::after {
 }
 
 .image-404 {
-    background-image: url("../images/blank_page.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    top: 0;  
-    bottom: 0; 
-    left: 0;
-    right: 0;
-    min-width: 100vw; 
-    min-height: 100vh; 
-    position: absolute; 
-    content: ''; 
-    z-index: 99; 
-    background-attachment: fixed;
+    background-image: url("../images/blank_page.png");  
 }
 
 .bg-image {
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -190,14 +194,21 @@ form.search-bar::after {
 }
 
  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
-  }
+}
 
   main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-  }
+}
 
 footer .row {
     margin: 0 auto 0 auto;
@@ -309,7 +320,7 @@ blockquote {
 }
 
 .tabcontent{
-    border-radius:0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
 }
 
 .tab-container .row {
@@ -329,18 +340,20 @@ blockquote {
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
   border-radius: 5px;
 }
 
 .tab button:hover {
   background-color: #952055;
-  color:#fafaed;
+  color: #fafaed;
 }
 
 .tab button.active {
   background-color: #420420;
-  color:#fafaed;
+  color: #fafaed;
 }
 
 .tab-heading {
@@ -380,14 +393,14 @@ blockquote {
 .collapsible {
     border: 0;
     margin: 0;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 .collapsible-header {
     background-color: rgba(250, 250, 237, 0.1);
     padding: 7px 5px 10px 10px;
     font-weight: 700;
-  /*  font-size: 1.15rem; */
     border: 0;
 }
 
@@ -478,7 +491,8 @@ input[type=url]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid #952055;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 textarea[type=text]:not(.browser-default),
@@ -495,7 +509,8 @@ input.valid[type=url]:not(.browser-default),
 input.valid[type=password]:not(.browser-default),
 input.valid[type=email]:not(.browser-default) {
     border-bottom: 1px solid #420420;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 /* Form Buttons */
@@ -528,6 +543,7 @@ input.valid[type=email]:not(.browser-default) {
     padding-left: 1.8rem;
     padding-right: 1.8rem;
 }
+
 /* Star Rating */
 
 .rating-container {
@@ -559,7 +575,7 @@ input.valid[type=email]:not(.browser-default) {
 .rating > label:hover,
 .rating > label:hover ~ label,
 .rating > input.radio-btn:checked ~ label {
-    color: gold;
+    color: #ffd700;
 }
 
 .rating > label:hover:before,
@@ -571,7 +587,7 @@ input.valid[type=email]:not(.browser-default) {
     font-weight: 600;
     position: absolute;
     left: 0; 
-    color: #FFD700;
+    color: #ffd700;
 }
 
 /* Reviews */
@@ -600,6 +616,7 @@ input.valid[type=email]:not(.browser-default) {
     border-radius: 3px;
     cursor: pointer;
     height: 1.75em;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 
@@ -612,11 +629,14 @@ input.valid[type=email]:not(.browser-default) {
 
 .profile-book-cover,
 .book-cover {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: .625rem;
     margin-bottom: 5px;
     max-width: 100%;
     max-height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     overflow: hidden;
 }
@@ -639,7 +659,7 @@ input.valid[type=email]:not(.browser-default) {
 
 .mobile-btn {
     margin-bottom: 5px;
-    margin-right: 10px;
+    margin-right: .7rem;
 }
 
 .buy-btn {
@@ -656,16 +676,23 @@ input.valid[type=email]:not(.browser-default) {
 
 .broken-heart-checkbox input[type='checkbox'], 
 .heart-checkbox input[type='checkbox'] {
-    display:none;
+    display: none;
 }
 
 .heart-checkbox input[type='checkbox']+ label:before {
     font-family: 'Font Awesome 5 Free';
     content: "\f004";
-	font-size:1.5rem;
+	font-size: 1.5rem;
     cursor: pointer;
     color: red;
 }
+
+.broken-heart-checkbox input[type='checkbox']+ label:before {
+    content: "\1F494";
+	font-size: 1.5rem;
+    cursor: pointer;
+ }
+
 
 .broken-heart-checkbox input[type='checkbox']:checked + label:before,
 .heart-checkbox input[type='checkbox']:checked + label:before {
@@ -674,18 +701,14 @@ input.valid[type=email]:not(.browser-default) {
 
 .broken-heart-checkbox label,
 .heart-checkbox label {
-     color: #720737;
+     color: #5a052c;
      font-weight: 500;
 }
 
-.broken-heart-checkbox input[type='checkbox']+ label:before {
-    content: "\1F494";
-	font-size:1.5rem;
-    cursor:pointer;
- }
 
 /*Scroll Up Btns*/
 
+#scrollToTopMUsers,
 #scrollToTopProfile,
 #scrollToTop {
     display: none;
@@ -695,12 +718,14 @@ input.valid[type=email]:not(.browser-default) {
     border: 1px solid #420420;
     border-radius: 5px;
     color: #fafaed;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     z-index: 99;
     border: none;
     outline: none;
 }
 
+#scrollToTopMUsers,
 #scrollToTop {
     right: 5rem;
 }
@@ -762,14 +787,17 @@ input.valid[type=email]:not(.browser-default) {
 .manage_users {
     background-color: #d9ccd2;
 }
+
 .delete-btn {
     margin-bottom: 1rem;
+    margin-right: 1rem;
 }
 
 /*404.html*/
 
 .f404 {
     margin: auto;
+    margin-top: 5rem;
     width: 60%;
     background-color: rgba(250, 250, 237, 0.8);
 }
@@ -830,19 +858,24 @@ input.valid[type=email]:not(.browser-default) {
     }
 
     .rating > label {
-    font-size: 1.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .welcome-container {
+        margin-top: 6rem;
     }
 }
 
 /* Mobile devices */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 736px) {
     /* Navbar */
     nav .brand-logo {
         padding-top: 5px;
-        padding-left: 1.5rem;
-        font-size: 3rem;
-        left: 30%;
-        text-align: center;
+        padding-left: 1.75rem;
+        font-size: 2.5rem;
+        left: 20%;
     }
     /* Home Page */
     .welcome-container {
@@ -855,6 +888,7 @@ input.valid[type=email]:not(.browser-default) {
         padding-right: 1rem;
         line-height: normal;
     }
+
     .sub-title {
         font-size: 2.5rem;
         line-height: normal;
@@ -879,11 +913,13 @@ input.valid[type=email]:not(.browser-default) {
         margin-top: 7px;
     }
 
+    #scrollToTopMUsers,
     #scrollToTopProfile,
     #scrollToTop {
         right: 1rem;
     }
 
+    #scrollToTopMUsers i,
     #scrollToTopProfile i,
     #scrollToTop i {
     font-size: 1rem;
@@ -915,8 +951,9 @@ input.valid[type=email]:not(.browser-default) {
     .form-heading {
         font-size: 2.5rem;
     }
+
     .form-container {
-        margin: 10px;
+        margin: .7rem
     }
 
     textarea[type=text]:not(.browser-default),
@@ -924,8 +961,8 @@ input.valid[type=email]:not(.browser-default) {
     input[type=url]:not(.browser-default),
     input[type=password]:not(.browser-default),
     input[type=email]:not(.browser-default) {
-        font-size: 12px;
-}
+        font-size: .9rem;
+    }
 
     /* 404.html */
     .f404 {
