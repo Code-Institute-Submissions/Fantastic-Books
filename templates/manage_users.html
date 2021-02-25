@@ -48,6 +48,15 @@
         </div> 
     </section>
 
+         <!--Scroll To Top Btn-->  
+    <div>
+        <button id="scrollToTopMUsers" title="Go to top" class="btn-small"><i class="fas fa-angle-double-up"></i></button>
+    </div>
+
 </main>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/manage_users.js') }}"></script>
 {% endblock %}

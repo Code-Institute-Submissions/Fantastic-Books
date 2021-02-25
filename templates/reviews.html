@@ -13,7 +13,8 @@
                 <input type="text" name="search" id="search" minlength="3" required placeholder="Search title, author, genre..">
                 <label for="search" class="hide"></label>
                 <button type="submit" id="submitBtn">
-                    <i class="fas fa-search"></i></button>             
+                    <i class="fas fa-search"></i>
+                </button>             
                 <a href="{{ url_for('reviews') }}" class="btn-small clear-btn hide-on-small-only btn tooltipped right" data-position="bottom" data-tooltip="Clear Results">
                     <i class="fas fa-redo-alt"></i>
                 </a>       
@@ -84,7 +85,8 @@
                             {% if session.user|lower == "admin"|lower %}
                                 <button data-target="{{'admin_delete'+review.title}}" class="btn-small modal-trigger right">
                                     Delete
-                                </button>                          
+                                </button>    
+                                   <!-- Confirm Delete Modal-->                      
                                        <div id="{{'admin_delete'+review.title}}" class="modal">
                                             <div class="modal-content">
                                                 <h4>Confirm Delete</h4>
@@ -101,8 +103,7 @@
                                <a href="{{ review.buy }}" target="_blank" class="btn-small buy-btn right">Buy</a>
                         </div>
                     </div> 
-                </div>
-                
+                </div>     
             </li>
        {% endfor %}
         </ul>
