@@ -39,12 +39,12 @@
     - [To Heroku](#to-heroku)
 
 - [Credits](#credits)
-    - [Content](#content)
-    - [Media](#media)
     - [Code](#code)
+    - [Content](#content)
+    - [Media](#media) 
     - [Acknowledgements](#acknowledgements)
 
-[Disclaimer](#disclaimer)
+- [Disclaimer](#disclaimer)
 
 ---
 
@@ -181,16 +181,21 @@ font, had good readability and was listed as a popular pairing for [Tangerine](h
 - To view the wireframes please click the links below:
 
 **Desktop**  
-Desktop wireframes can be found [here]("/aineon/Fantastic-Books/blob/master/wireframes")  
+- Desktop wireframes can be found [here](https://github.com/aineon/Fantastic-Books/tree/master/wireframes/desktop_wireframes)  
 
 **Tablet**  
- 
+- Tablet wireframes can be found [here](https://github.com/aineon/Fantastic-Books/tree/master/wireframes/tablet_wireframes) 
 
- **Mobile**
+**Mobile** 
+ - Mobile wireframes an be found [here](https://github.com/aineon/Fantastic-Books/tree/master/wireframes/mobile_wireframes) 
+
+##### [Back to Table of Contents](#table-of-contents)
+---
 
 ## **Database Model**
 MongoDB was used for this project. The below collections were mapped out utilising 
 the NoSQL features of MongoDB.
+
 
 **Users Collection**
 
@@ -346,6 +351,7 @@ the NoSQL features of MongoDB.
 - [Autoprefixer](https://autoprefixer.github.io/) 
 - [Compress PNG](https://compresspng.com/)
 - [jpg2png](https://jpg2png.com/)
+- [Unicode-table](https://unicode-table.com/en/)
 
 
 ### **Resources**
@@ -376,11 +382,12 @@ To deploy this project follow the below steps.
     - The following collections should be created:
         - **Users**
         - **Reviews**
-- A document in the **users** collection should contain the following fields:
+
+ A document in the **users** collection should contain the following fields:
 
 | **Key**       | **Value**     | **Type**
 |-------------  | :----------:  | -------:
-| firstname     |  unassigned   | String
+| firstname     |               | String
 | lastname      |               | String
 | username      |               | String  
 | email         |               | String
@@ -388,7 +395,7 @@ To deploy this project follow the below steps.
 | favourites    |               | Array
 | date_created  |               | String
 
-- A document in the **reviews** collection should contain the following fields:
+A document in the **reviews** collection should contain the following fields:
 
 | **Key**       | **Value**     | **Type**
 |-------------- |:------------: |--------:
@@ -486,3 +493,44 @@ echo web: python3 app.py > Procfile
 - Under **Manual Deploys** select **master** 
 - Click **Deploy Branch**
 - When the app has finished building, click **Open app** button on the top right of the page.
+
+##### [Back to Table of Contents](#table-of-contents)
+---
+
+## **Credits**
+
+### **Code**
+- **CSS Star Rating** from [Stack Overflow](https://stackoverflow.com/questions/8118266/integrating-css-star-rating-into-an-html-form)
+- **Heart Checkbox** on reviews.html from [Stack Overflow](https://stackoverflow.com/questions/49776701/checkboxes-with-font-awesome-5-icons)
+- **Profile Tabs** from [w3schools](https://www.w3schools.com/howto/howto_js_tabs.asp)
+- **Scroll To Top Buttons** from [w3schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
+- **SetTimeOut() Function** for flash messages from [Slack](https://code-institute-room.slack.com/archives/C7JQY2RHC/p1597105938236400?thread_ts=1597081577.232200&cid=C7JQY2RHC)
+
+### **Content**
+- Book synopsis and reviews were taken from [Book Despository](https://www.bookdepository.com)
+- Search, Redo, heart, star (on add/edit review forms) icons were taken from [FontAwesome](https://fontawesome.com/)
+- Broken heart and stars on reviews.html were taken from [Unicode-Table](https://unicode-table.com/en/)
+
+### **Media**
+- Book cover images were taken from [Book Despository](https://www.bookdepository.com) or [Amazon](https//:www.amazon.com)
+- Images from [Pixabay](https://pixabay.com/) were used for backgrounds on:
+    - index.html
+    - register.html
+    - login.html
+    - profile.html
+    - reviews.html
+    - add_review.html
+    - edit_review.html
+    - search_mobile.html
+- Search, Redo, heart, star (on add/edit review forms) icons were taken from [FontAwesome](https://fontawesome.com/)
+- Broken heart and stars on reviews.html were taken from [Unicode-Table](https://unicode-table.com/en/)
+
+### **Acknowledgements**
+Thank you to my mentor [Adegbenga Adeye](https://github.com/deye9) and CI tutor support for all their time and patience!
+
+## **Disclaimer** 
+All images and content on this website is for educational purposes only.
+
+##### [Back to Table of Contents](#table-of-contents)
+
+--- 

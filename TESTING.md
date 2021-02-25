@@ -1,4 +1,4 @@
-#### Back to README - LINK
+#### [Back to README.md](Fantastic_Books/README.md)
 
 ## **Testing**
 ### [**Table of Contents**](#table-of-contents)
@@ -399,8 +399,13 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
     - below metrics provided: 
 - [Python Code Checker] 
 
+#### [**Table of Contents**](#table-of-contents)
+---
 
 ## **Bugs and Issues**
 
 ### **Resolved**
 
+#### [**Table of Contents**](#table-of-contents)
+---
+#### [Back to README.md](Fantastic_Books/README.md)
