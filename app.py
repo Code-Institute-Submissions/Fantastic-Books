@@ -135,7 +135,7 @@ def reviews():
 def add_review():
     if request.method == "POST":
         default_url = ("https://www.bookdepository.com/")
-        default_img = ("static/images/no_cover.png")
+        default_img = ("/static/images/no_cover.png")
         default_rating = "No Stars Awarded"
         review = {
             "title": request.form.get("title"),
@@ -152,7 +152,7 @@ def add_review():
         }
         mongo.db.reviews.insert_one(review)
         flash("Your Review Has Been Added")
-        return redirect(url_for("reviews"))
+        return redirect(url_for("profile", username=session["user"]))
 
     reviews = mongo.db.reviews.find().sort("title", 1)
     return render_template("add_review.html", reviews=reviews)
@@ -163,7 +163,7 @@ def add_review():
 def edit_review(review_id):
     if request.method == "POST":
         default_url = ("https://www.bookdepository.com/")
-        default_img = ("static/images/no_cover.png")
+        default_img = ("/static/images/no_cover.png")
         default_rating = "No Stars Awarded"
         update = {
             "title": request.form.get("title"),
@@ -249,7 +249,7 @@ def logout():
 # Deletes user account
 @app.route("/delete_profile/<user_id>")
 def delete_profile(user_id):
-    mongo.db.reviews.remove({"created_by": session['user']})
+    mongo.db.reviews.delete_many({"created_by": session['user']})
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     flash("Your profile has been deleted")
     session.clear()
