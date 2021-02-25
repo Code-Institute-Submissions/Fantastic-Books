@@ -1,6 +1,5 @@
 
-<img src="https.github.com/aineon/fantastic-books/blob/master/README_images/site_mock_up.jpg?raw=true">
-<img src="mock_up.png>
+<img src="/readme_images/site_mock_up.jpg">
 
 ## [**Table of Contents**](#table-of-contents)
 
@@ -68,21 +67,21 @@ interactive Book Review App.
     - to allow users to curate their own profile 
 
 ### **User Stories**
-*"As a user, I want to immediately understand the purpose of the site"*
-*"As a user, I want to create my own reviews."*
-*"As a user, I want to be able to rate the book I am reviewing."* 
-*"As a user, I want to easily access my own content."* 
-*"As a user, I want to edit reviews I have created."*
-*"As a user, I want to control my own content."*  
-*"As a user, I want to be able to delete reviews I have created."*  
-*"As a user, I want to be able to delete my account."*  
-*"As a user, I want to be able to browse reviews created by other users."*
-*"As a user, I want to be to save reviews created by other users that I like."*  
-*"As a user, I want to be directed to a site where I can buy a book."* 
-*"As a user, I want to be able to search for a book, author or genre."*
-*"As a user, I want a site that is visually appealing."*  
-*"As a user, I want a site that is easy to navigate."* 
-*"As a user, I want a site that is intuitive."*  
+- *"As a user, I want to immediately understand the purpose of the site"*
+- *"As a user, I want to create my own reviews."*
+- *"As a user, I want to be able to rate the book I am reviewing."* 
+- *"As a user, I want to easily access my own content."* 
+- *"As a user, I want to edit reviews I have created."*
+- *"As a user, I want to control my own content."*  
+- *"As a user, I want to be able to delete reviews I have created."*  
+- *"As a user, I want to be able to delete my account."*  
+- *"As a user, I want to be able to browse reviews created by other users."*
+- *"As a user, I want to be to save reviews created by other users that I like."*  
+- *"As a user, I want to be directed to a site where I can buy a book."* 
+- *"As a user, I want to be able to search for a book, author or genre."*
+- *"As a user, I want a site that is visually appealing."*  
+- *"As a user, I want a site that is easy to navigate."* 
+- *"As a user, I want a site that is intuitive."*  
 
 ### **Design Process**
 - I wanted to design an app that envoked the feeling a reading a good book and escaping into the world that book creates.
@@ -182,7 +181,7 @@ font, had good readability and was listed as a popular pairing for [Tangerine](h
 - To view the wireframes please click the links below:
 
 **Desktop**  
-  
+Desktop wireframes can be found [here]("/aineon/Fantastic-Books/blob/master/wireframes")  
 
 **Tablet**  
  
@@ -190,7 +189,39 @@ font, had good readability and was listed as a popular pairing for [Tangerine](h
  **Mobile**
 
 ## **Database Model**
- DB SCHEMA HERE
+MongoDB was used for this project. The below collections were mapped out utilising 
+the NoSQL features of MongoDB.
+
+**Users Collection**
+
+| **Key**        |  **Type**     | **Purpose**|
+|-------------- |-------------- |-------------|
+| _id           |  ObjectId     | ObjectId of this document
+| firstname     |   String      | stores the first name of the user 
+| lastname      |   String      | stores the last name of the user 
+| username      |   String      | stores the username of the user 
+| email         |   String      | stores the email address of the user 
+| password      |   String      | stores the hashed password of the user 
+| favourites    |   Array       | stores the ObjectIds of reviews added to favourites 
+| date_created  |   String      | stores the date the document was created 
+
+
+**Reviews Collection**
+
+| **Key**         |  **Type**     | **Purpose** |
+|--------------   |:------------ |:--------   |
+| _id             |  ObjectId     | ObjectId
+| title           |   String      | stores the title of the book
+| author          |   String      | stores the author of the book 
+| genre           |   String      | stores the genre of the book 
+| published       |   String      | stores the published date of the book 
+| cover           |   String      | stores a link to the cover image 
+| buy             |   String      | stores a link to a site where the book can be purchased
+| synopsis        |   String      | stores synopsis of the book 
+| review          |   String      | stores the book review 
+| created_by      |   String      | stores the username of the person who created the review 
+| rating          |   String      | stores the number of stars given to the book 
+| date_created    |   String      | stores the date the review was created
 
 ##### [Back to Table of Contents](#table-of-contents)
 ---
