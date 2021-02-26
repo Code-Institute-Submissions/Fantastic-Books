@@ -101,21 +101,28 @@ def login():
 # Render users profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    print("Loading profile page")
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     # find reivews created by user
     if session["user"]:
+        print("user is signed in")
         my_reviews = list(mongo.db.reviews.find(
             {"created_by": session["user"]}).sort("title", 1))
         user = mongo.db.users.find_one(
             {"username": session["user"]})
         user_favourites = user["favourites"]
         fav_review = []
-    # get user favourites and display them on profile page
+        """
+        get user favourites and display them on profile page
+        if they exist in the db
+        """
         for fav in user_favourites:
             review = mongo.db.reviews.find_one({"_id": ObjectId(fav)})
-            fav_review.append(review)
+            if review is not None:
+                fav_review.append(review)
+
         return render_template(
             "profile.html", username=username, reviews=my_reviews,
             fav_review=fav_review, user=user)
