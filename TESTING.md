@@ -1,4 +1,4 @@
-#### [Back to README.md](https://github.com/aineon/Fantastic-Books/blob/master/README.md)
+#### [Back to README](README.md)
 
 ## **Testing**
 ### [**Table of Contents**](#table-of-contents)
@@ -53,8 +53,8 @@ under clearly identified tabs.
 - All reviews in the database are displayed on the reviews page
 
 *"As a user, I want to be to save reviews created by other users that I like."*
-- The save review heart allows uesrs to save reviews created by other users to their own profile
-- The review can be removed by clicking the broken heart button on the review in the _'Favourites'_ tab on thier profile
+- The save review heart allows users to save reviews created by other users to their own profile
+- The review can be removed by clicking the broken heart button on the review in the _'Favourites'_ tab on their profile
 
 *"As a user, I want to be directed to a site where I can buy a book."*
 - The buy button redirects the user to a site where the book can be purchased
@@ -70,14 +70,15 @@ under clearly identified tabs.
 *"As a user, I want a site that is easy to navigate."* 
 - Links are clearly defined in the navbar with additional options to navigate to different pages throughout the site
 - Buttons and icons are easily identifiable
+- Consistency across the site is achieved with the navbar and footer remaining fixed across all pages
 
 *"As a user, I want a site that is intuitive."*
 - The links are ordered in an intuitive manner
 - All content is located where it would be expected to be found.
 - By directing users to their personalised profile page on registration/login it shows them exactly what they can expect to find regardless if they have content or not
-- The profile also allows them to navigate to whereever they need to go to find or create content
+- The profile also allows them to navigate to where ever they need to go to find or create content
 
-### [**Table of Contents**](#table-of-contents)
+#### [**Table of Contents**](#table-of-contents)
 
 --- 
 
@@ -89,7 +90,7 @@ under clearly identified tabs.
 
 #### **Navbar/Sidenav**
  - Navbar is fixed to top of the viewport when scrolling down
- - Each link was clicked to ensure it directed user to correct page to the correct page
+ - Each link was clicked to ensure it directed user to correct page
  - Nav brand logo clicked to ensure it returns user to index.html
  - Logged out user only has access to relevant links - 'Home', 'Login', 'Sign up'
  - Logged in user who **_is not 'admin'_** has access to - _'Home', 'My Profile', 'Reviews', 'Add Review', 'Search' 
@@ -136,7 +137,7 @@ under clearly identified tabs.
 #### **login.html**
 - **_Form Validation_** 
     - All fields must be completed to submit form 
-    - If _username_ and/or _password_ are entered incorrectly flash message informs user and form is reloaded
+    - If _username and/or password_ are entered incorrectly flash message informs user and form is reloaded
     - _'Log In'_ Button 
         - Changes colour on hover
         - On button click:
@@ -150,17 +151,21 @@ under clearly identified tabs.
     - At least 3 characters must be enterd for search to be valid
     - On click of the _'search'_ button, results are displayed on reviews.html
     - _'Search'_ button changes colour on hover
-- **_Profile Title_**
+    - Search bar is not visible on small devices
+- **_Profile Title_** 
     - Displays the users name
+    - Not visible on smalle devices
 - **_Tabs_**
     - The active tab button is highlighted
     - **_'My Favourites'_**
         - The _'My Favourites'_ tab opens automatically on page load.
         - _'Find Books'_ button - redirects user to reviews.html
         - Any reviews that have been saved by the user are displayed in this tab along with all information related to that review
-        - _'Broken heart'_ icon 
+        - _'Broken heart'_ icon: 
             - Grows on hover
-            - When clicked removes tha review from the users _'My Favourites'_ tab and from the 'favourites' field in the users collection in the database
+            - When clicked, removes that review from the users _'My Favourites'_ tab and from the 'favourites' field in the users collection in the database
+        - If a review saved to favourites is deleted by the owner of that review it is prevented from being displayed in 
+        the 'My Favourites' tab 
         - _'Buy'_ button 
             - Changes colour on hover
             - Redirects user to a site where they can buy the book 
@@ -168,13 +173,14 @@ under clearly identified tabs.
         and a _'Find Books'_ button which redirects user to reviews.html
     - **_My Reviews_**
         - Any reviews that have been created by the user are displayed in this tab along with all information related to that review
-        - _'Delete'_ button 
+        - _'Delete'_ button: 
             - Changes colour on hover
             - Triggers a modal to confirm review delete.
-        - _'Delete Modal'_ 
+        - _'Delete Modal'_: 
             - Changes colour on hover
             - Asks user to confirm they want to delete the review
-        - _'Delete'_modal button
+            - States the name of the book they are trying to delete
+        - _'Delete'_modal button:
             - Changes colour on hover 
             - Deletes the review from the database, 
             - Flash message informs user review has been deleted 
@@ -200,13 +206,13 @@ under clearly identified tabs.
                 - Changes colour on hover
                 - If form is not filled out correctly, user is informed to fill out missing field
                 - If form is filled out correctly, review is added to the database 
-                    - reviews.html is loaded
+                    - profile is reloaded
                     - Review is added to _'My Reviews'_ tab and to reviews.html
     - **_Delete Account_** 
-        - Allows user to delete their profile
-        - _'Delete Account'_ button
+        - Allows user to delete their account
+        - _'Delete Account'_ button:
             - Changes colour on hover 
-            - Triggers modal asking users to confirm they want to delete their Account
+            - Triggers modal asking users to confirm they want to delete their account
         - _'Delete'_modal button
             - Changes colour on hover 
             - Deletes the user from the database 
@@ -223,16 +229,17 @@ under clearly identified tabs.
     - Users can perform search on all reviews by _'Title', 'Author' or 'Genre'_
     - At least 3 characters must be enterd for search to be valid
     - On click of the _'search'_ button, results are displayed
-    - If there are no matching results, user informed 'No Results Found'
+    - If there are no matching results, user informed 'No Results Found' and 'clear results button is displayed
+    - **_Clear Results_** button clears the current search and reloads reviews.html
     - _'Search'_ button changes colour on hover
     - _Clear results_ button 
         - Font awesome icon for '_redo_'
         - On hover:
             - Button changes colour
-            - Tooltip appears with _'clear results'_ text  
+            - Tooltip appears with _'clear results'_ text 
 - **_Reviews_** 
-    - All reviews in the database are displayed 
-        - Including all info entered by the creator of the review 
+    - All reviews in the database are displayed, including: 
+        - All info entered by the creator of the review 
         - Username of user that created the review
         - Date review was created
     - _'Save Review Heart'_ icon
@@ -247,22 +254,27 @@ under clearly identified tabs.
     - If logged in as **_admin_**
         - _'Delete'_ button is visible on all reviews
             - _'Delete'_ button: 
-            - Changes colour on hover
-            - Triggers a modal to confirm review delete
-        - _'Delete Modal'_ 
+                - Changes colour on hover
+                - Triggers a modal to confirm review delete
+        - _'Delete Modal'_:
             - Changes colour on hover
             - Asks user to confirm they want to delete the review
-        - _'Delete'_modal button
+            - States the title of the book to be deleted
+        - _'Delete'_modal button:
             - Changes colour on hover 
-            - Deletes the review from the database, 
+            - Deletes the review from the database
             - Flash message informs user review has been deleted 
-            - Reloads profile page
+            - Reloads reviews.html page
+        - _'Edit'_ Button is visible on all reviews
+            - Allows **admin** to edit any review created by any user
 - **_Scroll Up Button_**
     - Appears when the user scrolls 20px down the page
     - Changes colour on hover
     - Scrolls back to top of the page when clicked 
 - **_On Small Devices_**
-    - _'Search'_ icon - returns user to search_mobile.html
+    - **_Search Bar_** is not accessible on small devices 
+    - _'Search'_ icon - returns user to search_mobile.html to perform search
+        - Results from searches performed from search_mobile.html are rendered on reviews.html
     - _'Clear'_ icon 
         - Clears search results
         - Reloads reviews.html
@@ -281,11 +293,11 @@ under clearly identified tabs.
             - Stars change colour when hovered over
             - User can chose how many stars to give a review
             - If no stars are selected, then '_No Stars Given_' is displayed
-        - _'Add Review'_ button 
+        - _'Add Review'_ button: 
             - Changes colour on hover
             - If form is not filled out correctly, user is informed to fill out missing field
             - If form is filled out correctly, review is added to the database 
-                - reviews.html is loaded
+                - profile.html is loaded
                 - Review is added to _'My Reviews'_ tab and to reviews.html
 
 #### **edit_review.html**
@@ -305,7 +317,7 @@ under clearly identified tabs.
             - Changes colour on hover
             - If form is not filled out correctly, user is informed to fill out missing field
             - If form is filled out correctly, review is updated in the database 
-                - reviews.html is loaded
+                - Users profile is loaded
         - _'Cancel'_ button 
             - Changes colour on hover
             - No changes to the form are saved
@@ -502,6 +514,7 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
 ## **Bugs and Issues**
 
 ### **Resolved**
+
 **_issue_**:
 - Sidenav links not clickable
 
@@ -519,7 +532,7 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
 ````
 
 **_issue_**:
-- Heart checkbox on review in reviews.html couldn't be clicked independantly of each other.
+- Heart checkboxs on review in reviews.html couldn't be clicked independantly of each other.
 
 **_fix_**:
 - Added `{{loop.index}}` to `id`, `label` and `name` to the input and label of `heart-checkbox` div.
@@ -541,7 +554,7 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
 ````
 
 **_issue_**:
-- User was able to save the same review multiple times
+- User was able to save the same review to their favourites multiple times
 
 **_fix_**:
 - Added an `if` statement to `add_favourite` function
@@ -551,14 +564,14 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
 ````
 
 **_issue_**: 
-- Star rating not being picked up on _edit_review_ form
+- Star rating not being picked up on _edit_review_ form submit
 
 **_fix_**:
 - Added `"rating": request.form.get("star") or default_rating` to `update{}` dictionary in _edit_reivew_ function
 
 **_issue_**:
 - Scripts for scrollBtn on reviews.html and tabs on profile.html not executing.
-- Scritps were in conflict with each other when switching between the pages.
+- Scripts were in conflict with each other when switching between the pages.
 
 **_fix_**:
 - Seperated the scripts for each page into their own `.js` file
@@ -641,7 +654,8 @@ to each one
 ````
 
 **_issue_**:
-- When deleting a review or profile from the modals the first document in the list was being deleted instead of the selected profile/review
+- When deleting a review or account from the modals delete button the first document in the list was being 
+deleted instead of the selected account/review
 
 **_fix_**:
 - Specified document to be deleted in the modal `id` and `data-target`
@@ -674,6 +688,7 @@ to each one
 
 - When _admin_ user deletes a users account that users reviews are not being deleted
 
+
 #### [**Table of Contents**](#table-of-contents)
 ---
-#### [Back to README.md](Fantastic_Books/README.md)
+#### [Back to README.md](README.md)
