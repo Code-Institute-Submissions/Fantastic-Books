@@ -175,7 +175,6 @@ form.search-bar::after {
 
 .image-404 {
     background-image: url("../images/blank_page.png");  
-    top: 0;
 }
 
 .bg-image {
