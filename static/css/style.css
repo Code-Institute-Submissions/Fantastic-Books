@@ -503,7 +503,7 @@ input[type=email]:not(.browser-default) {
     border-bottom: 1px solid #5a052c;
 }
 
-textarea.valid[type=text]:not(.browser-default),
+textarea.valid:not(.browser-default),
 input.valid[type=text]:not(.browser-default),
 input.valid[type=url]:not(.browser-default),
 input.valid[type=password]:not(.browser-default),
@@ -665,6 +665,10 @@ input.valid[type=email]:not(.browser-default) {
 .buy-btn {
     margin-right: 1rem;
     margin-bottom: 1rem;
+}
+
+.edit-btn {
+    margin-right: .5rem;
 }
 
 /* Heart Checkbox */
