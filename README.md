@@ -93,16 +93,16 @@ and clean aesthetic.
    
 **Colour Palette**
 
-<img src="/static/readme_images/colour_palette.jpg">
+<img src="/static/readmeimages/colour_palette.jpg">
 
 ##### **Primary Colour Palette**
 
-<img src="/static/readme_images/primary_palette.jpg">
+<img src="/static/readmeimages/primary_palette.jpg">
 
 I chose #420420, #5a052c and #fafaed as my main colour scheme. I felt these colours worked well together and were in
 keeping with the overall aesthetic of the app.
 
- <img src="/static/readme_images/420420.jpg">  
+ <img src="/static/readmeimages/420420.jpg">  
 
 - **Site wide**:
     - brand logo
@@ -119,14 +119,14 @@ keeping with the overall aesthetic of the app.
 - Mobile Search Page:
     - title text
     
-<img src="/static/readme_images/5a052c.jpg">
+<img src="/static/readmeimages/5a052c.jpg">
 
 - **Site wide**:
     - body text
     - sidenav title
     - form labels/inputs 
 
-<img src="/static/readme_images/fafaed.jpg">
+<img src="/static/readmeimages/fafaed.jpg">
 
 - **Site wide**:
     - nav background
@@ -140,19 +140,19 @@ keeping with the overall aesthetic of the app.
    
 ##### **Secondary Colour Palette**
 
-<img src="/static/readme_images/secondary_palette.jpg">
+<img src="/static/readmeimages/secondary_palette.jpg">
 
 I chose these colours as I felt they worked well with the primary colour scheme and highlighted
 certain elements.
 
-<img src="/static/readme_images/952055.jpg">
+<img src="/static/readmeimages/952055.jpg">
 
 - hover colour for all buttons
 - dividers
 - links
 - active inputs/labels
 
-<img src="/static/readme_images/d9ccd2.jpg">
+<img src="/static/readmeimages/d9ccd2.jpg">
 
 This colour was used for the background of manage_users.html.
 Since this page was only visible to the admin of the site I felt it was unnecessary to have a background image.
@@ -254,63 +254,92 @@ the NoSQL features of MongoDB.
 - Delete their own reviews
 - Read all reviews
 - Delete their own account
+- Edit reviews created by any user
 - Delete reviews created by any user
 - Delete any user account
 
 ### **Existing Features** 
+
 #### **Site wide**
  - **_Navbar/Sidenav_** - to allow easy navigation across the app, identifies app name
  - **_Footer_** - contains copyright information 
- #### **Index.html**
+ 
+ #### **index.html**
  - **_Welcome Title_** - identifies the name and type of app
  - **_Welcome Text_** - information about the app
  - **_Log In_** button/link - directs user to login page  
  - **_Sign Up_** button/link - directs user to sign up page  
- #### **Profile.html**  - A personalised page for each user
- - **_Search bar_** - allows users to search for a book/review by title, author or genre and renders results on reviews.html  
- - **_My Favourites Tab_** - displays any reviews a user has added to their favourites
- - **_Remove Review_** Icon - allows users to remove a review from their favourites tab and from the favourites field in the users collection in the database
- - **_Buy_** Button - Redirects user to a site where the book can be purchased
- - **_Find Books_** button - directs user to the reviews page
- - **_My Reviews Tab_** - displays reviews created by that user
- - **_Delete_** Button - triggers a modal asking user to confirm they want to delete that review 
- - **_Modal Delete_** Button - deletes the review, removing it from the database - flash message confirms delete
- - **_Modal Cancel_** Button - closes the modal with no action being taken
- - **_Edit_** Button - redirects user to 'Edit Review' form
- - **_Add Review Tab_** - a form that allows users to create a review
- - **_Add Review_** Button - adds review to the reviews collection in the database. renders it on the 'My Reviews' tab and on Reviews.html - 
- flash message confirms review has been added, redirects user to reviews.html
- - **_Delete Account Tab_** - contains delete account button
- - **_Delete Account_** Button - triggers modal asking user to confirm they want to delete their account. 
- - **_Modal Delete_** Button 
- - Deletes users account from the database
- - Flash message confirms delete
- - Redirects to index.html
-#### **Reviews.html** - Displays all reviews created by all users
- - **_Search bar_** - allows users to search for a book/review by title, author or genre and renders results 
- - **_Save Review_** 
- - Not visible to review creator 
- - Allows other users to save that review to 'My Favourites' tab on thier profile 
- - Confirmed by flash message that review has been 'added to favourites' 
- - If review is already saved, flash message informs user.
- - **_Buy_** Button - Redirects user to a site where the book can be purchased  
- - **_Scroll Up_** Button - returns user to the top of the page
-#### **Add Review.html** - Allows users to add reviews without navigating to profile page 
- - Contains form to add review
- - **_Add Review_** Button 
- - Adds review to the database 
- - Confirmed by flash message
- - Redirects user to reviews.html
-#### **Edit Review.html**
- - Only accessible through Edit button on users own reviews. 
- - Allows users to edit the selected review. 
- - Updates the review in the database
-#### **Register.html**
- - Allows users to sign up to the site by supplying required information Adds user information to the users collection in the database
+
+ #### **register.html**
+ - Allows users to sign up to the site by supplying required information 
+ - Adds user information to the users collection in the database
  - **_Link to login.html_** - redirects user to login.html 
-#### **Login.html** 
+
+#### **login.html** 
  - Users must sign in with username and password to access the site
  - **_Link to Register.html_** - redirects user to register.html 
+ 
+ #### **profile.html**  - A personalised page for each user
+ - **_Search bar_** - allows users to search for a book/review by title, author or genre and renders results on reviews.html  
+ - **_My Favourites Tab_** - displays any reviews a user has added to their favourites
+    - **_Remove Review_** Icon - allows users to remove a review from their favourites tab and from the favourites field in the users collection in the database
+    - **_Buy_** Button - Redirects user to a site where the book can be purchased
+    - **_Find Books_** button - directs user to the reviews page
+ - **_My Reviews Tab_** - displays reviews created by that user
+    - **_Delete_** Button - triggers a modal asking user to confirm they want to delete that review 
+    - **_Modal Delete_** Button: 
+        - Deletes the review, removing it from the database 
+        - Flash message confirms delete
+    - **_Modal Cancel_** Button - closes the modal with no action being taken
+    - **_Edit_** Button - redirects user to 'Edit Review' form
+ - **_Add Review Tab_** - a form that allows users to create a review
+    - **_Add Review_** Button: 
+        - Adds review to the reviews collection in the database. 
+        - Renders it on the 'My Reviews' tab and on Reviews.html  
+        - Flash message confirms review has been added 
+        - Redirects user to profile.html
+ - **_Delete Account Tab_** - contains delete account button
+    - **_Delete Account_** Button - triggers modal asking user to confirm they want to delete their account. 
+    - **_Modal Delete_** Button: 
+        - Deletes users account from the database
+        - Flash message confirms delete
+        - Redirects to index.html
+
+#### **reviews.html** - Displays all reviews created by all users
+ - **_Search bar_** - allows users to search for a book/review by title, author or genre and renders results 
+ - **_Save Review_** 
+    - Not visible to review creator 
+    - Allows other users to save that review to 'My Favourites' tab on thier profile 
+    - Confirmed by flash message that review has been 'added to favourites' 
+    - If review is already saved, flash message informs user.
+ - **_Buy_** Button - Redirects user to a site where the book can be purchased  
+ - **_Scroll Up_** Button - returns user to the top of the page
+ - If user is **_admin_** - **Edit** and **Delete** buttons are visible on all reviews
+    - **_Delete_** Button allows **admin** to delete any review created by any user
+    - **_Edit_** Button allows **admin** to edit any review created by any user
+
+#### **add_review.html** - Allows users to add reviews without navigating to profile page 
+ - Contains form to add review
+ - **_Add Review_** Button:
+    - Adds review to the database 
+    - Confirmed by flash message
+    - Redirects user to profile.html
+
+#### **edit_review.html**
+ - Only accessible through Edit button on users own reviews. 
+ - Allows users to edit the selected review. 
+ - **_Edit Review_** Button:
+    - Updates the review in the database
+
+#### **search_mobile.html**
+- Only accessible on small devices
+- Allows users to search for reviews 
+
+#### **manage_users.html**
+- Only accessible to **admin** user 
+- Lists all current users in the users collection
+- **_Delete_** Button - Allows **admin** to delete any user account
+
 #### **Log Out** Nav Link 
  - Logs user out of their account 
  - Confirms logout with flash message 
@@ -320,6 +349,7 @@ the NoSQL features of MongoDB.
 - Implement Google Books API access so users can automatically populate book info fields
 - Add logic so users can comment on other users reviews
 - Add logic so users can upvote or downvote other users reviews
+- Contact Admin Page
 
 ##### [Back to Table of Contents](#table-of-contents)
 ---
@@ -373,7 +403,7 @@ the NoSQL features of MongoDB.
 ---
 
 ## **Testing**
-Full testing documentation can be found [here](https://github.com/aineon/Fantastic-Books/blob/master/TESTING.md).
+Full testing documentation can be found [here](TESTING.md).
 
 ##### [Back to Table of Contents](#table-of-contents)
   ---
