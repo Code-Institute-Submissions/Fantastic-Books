@@ -267,8 +267,17 @@ the NoSQL features of MongoDB.
  #### **index.html**
  - **_Welcome Title_** - identifies the name and type of app
  - **_Welcome Text_** - information about the app
- - **_Log In_** button/link - directs user to login page  
- - **_Sign Up_** button/link - directs user to sign up page  
+ - **_Log In_** link - directs user to login page
+ - **_Sign Up_** link - directs user to sign up page
+ - **_Log In_** button:
+    - Is only visible if the user **_is not_** logged in
+    - Directs user to login page  
+ - **_Sign Up_** button:
+    - Is only visible if the user **_is not_** logged in
+    - Directs user to sign up page 
+ - **_My Profile_** button:
+    - Is only visible if user **_is_** logged in
+    - Directs user to their profile page 
 
  #### **register.html**
  - Allows users to sign up to the site by supplying required information 
