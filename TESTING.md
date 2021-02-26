@@ -109,15 +109,21 @@ under clearly identified tabs.
 
 #### **index.html**
  - **_Log In_** Link 
-    - directs user to _'Log In'_ page
+    - Directs user to _'Log In'_ page
  - **_Sign Up_** Link
-    - directs user to _'Sign Up'_ page
- - **_Log In_** Button
-    - changes colour on hover
-    - directs user to _'Log In'_ page
- - **_Sign Up_** Button
-    - changes colour on hover
-    - directs user to _'Sign Up'_ page
+    - Directs user to _'Sign Up'_ page
+ - **_Log In_** Button:
+    - Only visible if the user **_is not_** logged in
+    - Changes colour on hover
+    - Directs user to _'Log In'_ page
+ - **_Sign Up_** Button:
+    - Only visible if the user **_is not_** logged in
+    - Changes colour on hover
+    - Directs user to _'Sign Up'_ page
+ - If user **_is_** logged in then **_My Profile_** Button is displayed
+    - **_My Profile_** Button:
+        - Changes colour on hover
+        - Directs user to their profile page
 
 #### **register.html**
 - **_Form Validation_** 
@@ -344,11 +350,13 @@ under clearly identified tabs.
     - Triggers a modal to confirm account delete
 - _'Delete Account'_ Modal: 
     - Asks user to confirm they want to delete this account
-- _'Delete Account'_modal button:
+- _'Delete Account'_ Modal Button:
     - Changes colour on hover 
     - Deletes the account from the database, 
     - Flash message informs user review has been deleted 
     - Reloads page
+
+- It is intentional that the same book can be reviewed more than once. 
 
 #### [**Table of Contents**](#table-of-contents)
 
@@ -682,6 +690,23 @@ deleted instead of the selected account/review
     if review is not None:
         fav_review.append(review)
 ````
+
+**_issue_**:
+- I was getting a _'Page Build Failed'_ error from Github on 26/02/2021 on the commits below:
+
+| **Commit Message**                    |  **Commit Id** |   **Commit Reason**
+|---------------------------------------|--------------- |--------------------
+| README and TESTING updated            |    75a3932     | Intentional Commit
+| Add/remove semi colons are per jshint |    95a9313     | Intentional Commit
+| type=text removed from textarea       |    8511f2b     | Intentional Commit 
+| Type removed from textarea            |    ee17745     | Attempt to force rebuild
+| Change folder name                    |    560c93e     | Attempt to force rebuild
+
+**_fix_**:
+- First I added an empty `.nojekyll` file 
+- I then realised that _GitHub Pages_ was set to master branch
+- I set _GitHub Pages_ back to none and the build was successful on the next commit
+
 ### **Existing**
 
 - Although _favourites_ are not being displayed when the review has been deleted they still exist in the favourites[] field in the users collection in the database
