@@ -1,5 +1,5 @@
 
-<img src="/readme_images/site_mock_up.jpg">
+<img src="/static/readme_images/site_mock_up.jpg">
 
 ## [**Table of Contents**](#table-of-contents)
 
@@ -23,16 +23,12 @@
 
 - [Technologies Used](#technologies-used)
     - [Languages](#languages)
-    - [Libraries and Frameworks](libraries-and-frameworks)
-    - [Project Management](project-management)
+    - [Libraries and Frameworks](#libraries-and-frameworks)
+    - [Project Management](#project-management)
     - [Tools](#tools)
     - [Resources](#resources)
 
 - [Testing](#testing)
-
-- [Bugs and Solutions](#bugs-and-solutions)
-    - [Resolved Bugs](#resolved-bugs)
-    - [Still Existing](#still-existing)
 
 - [Deployment](#deployment)
     - [Locally](#locally)
@@ -95,64 +91,75 @@ and clean aesthetic.
 #### Colour Palette
 - I wanted the colour scheme to be elegant and complement the background images while still be easily readable.  
    
-   PUT COLOUR PALETTE HERE
+**Colour Palette**
+
+<img src="/static/readme_images/colour_palette.jpg">
 
 ##### **Primary Colour Palette**
+
+<img src="/static/readme_images/primary_palette.jpg">
+
 I chose #420420, #5a052c and #fafaed as my main colour scheme. I felt these colours worked well together and were in
 keeping with the overall aesthetic of the app.
 
-     PUT IMAGE HERE
-- **#42042**
-    - Site wide:
-        - brand logo
-        - nav links
-        - sidenav trigger icon
-        - sidenav links
-        - footer background colour
-        - all button backgrounds
-    - Home Page: 
-        - Welcome title, subtitle and text
-    - Profile Page:  
-        - tab buttons
-        - search button
-    - Mobile Search Page:
-        - title text
+ <img src="/static/readme_images/420420.jpg">  
+
+- **Site wide**:
+    - brand logo
+    - nav links
+    - sidenav trigger icon
+    - sidenav links
+    - footer background colour
+    - all button backgrounds
+- Home Page: 
+    - Welcome title, subtitle and text
+- Profile Page:  
+    - tab buttons
+    - search button
+- Mobile Search Page:
+    - title text
     
-- **#5a052c**
-    - Site wide:
-        - body text
-        - sidenav title
-        - form labels/inputs 
+<img src="/static/readme_images/5a052c.jpg">
 
-- **#fafaed**
-    - Site wide:
-        - nav background
-        - sidenav background
-        - footer text
-        - page headings
-        - button text
-        - flash message background
+- **Site wide**:
+    - body text
+    - sidenav title
+    - form labels/inputs 
 
-GRADIENT HERE 
+<img src="/static/readme_images/fafaed.jpg">
+
+- **Site wide**:
+    - nav background
+    - sidenav background
+    - footer text
+    - page headings
+    - button text
+    - flash message background
+    - backgrounds for all content/forms
+        - varying degrees of opacity were used depending on the background image
    
 ##### **Secondary Colour Palette**
+
+<img src="/static/readme_images/secondary_palette.jpg">
+
 I chose these colours as I felt they worked well with the primary colour scheme and highlighted
 certain elements.
 
-PUT IMAGE HERE
+<img src="/static/readme_images/952055.jpg">
 
-- **#952055**
-    - hover colour for all buttons
-    - dividers
-    - links
-    - active inputs/labels
+- hover colour for all buttons
+- dividers
+- links
+- active inputs/labels
 
+<img src="/static/readme_images/d9ccd2.jpg">
 
-#### **Backgrounds Gradient** 
+This colour was used for the background of manage_users.html.
+Since this page was only visible to the admin of the site I felt it was unnecessary to have a background image.
 
 #### **Background Images**
 I chose book related imagery that I felt envoked the magic of reading your favourite book
-and discovering new books. THe feeling you get when your're in a beautiful library or bookshop.
+and discovering new books. The feeling you get when your're in a beautiful library or bookshop or slip into the world of the book you are reading.
 
 #### **Typography**
 - I wanted a handwriting style font for the brand logo, titles and headings.
@@ -352,6 +359,7 @@ the NoSQL features of MongoDB.
 - [Compress PNG](https://compresspng.com/)
 - [jpg2png](https://jpg2png.com/)
 - [Unicode-table](https://unicode-table.com/en/)
+- [Color-hex](https://www.color-hex.com/)
 
 
 ### **Resources**
@@ -365,7 +373,7 @@ the NoSQL features of MongoDB.
 ---
 
 ## **Testing**
-Full testing documentation can be found [here](Fantastic_Books/TESTING.md).
+Full testing documentation can be found [here](https://github.com/aineon/Fantastic-Books/blob/master/TESTING.md).
 
 ##### [Back to Table of Contents](#table-of-contents)
   ---
@@ -513,20 +521,25 @@ echo web: python3 app.py > Procfile
 
 ### **Media**
 - Book cover images were taken from [Book Despository](https://www.bookdepository.com) or [Amazon](https//:www.amazon.com)
+- **No Cover** Image from [here](https://islandpress.org/sites/default/files/default_book_cover_2015.jpg) 
 - Images from [Pixabay](https://pixabay.com/) were used for backgrounds on:
-    - index.html
-    - register.html
-    - login.html
-    - profile.html
-    - reviews.html
-    - add_review.html
-    - edit_review.html
-    - search_mobile.html
-- Search, Redo, heart, star (on add/edit review forms) icons were taken from [FontAwesome](https://fontawesome.com/)
-- Broken heart and stars on reviews.html were taken from [Unicode-Table](https://unicode-table.com/en/)
+    - index.html - Image by <a href="https://pixabay.com/users/prettysleepy-2973588/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5430309">Prettysleepy</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5430309">Pixabay</a>
+    - register.html - Image by <a href="https://pixabay.com/users/siala-719262/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1701799">siala</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1701799">Pixabay</a>
+    - login.html - Image by <a href="https://pixabay.com/users/thommas68-2571842/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2180047">Iván Tamás</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2180047">Pixabay</a>
+    - profile.html - Image by <a href="https://pixabay.com/users/izoca-1502280/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=980732">izoca</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=980732">Pixabay</a>
+    - reviews.html - Image by <a href="https://pixabay.com/users/comfreak-51581/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2929646">Comfreak</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2929646">Pixabay</a>
+    - add_review.html - Image by <a href="https://pixabay.com/users/thommas68-2571842/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2152349">Iván Tamás</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2152349">Pixabay</a>
+    - edit_review.html - Image by <a href="https://pixabay.com/users/mysticsartdesign-322497/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5280551">Mystic Art Design</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5280551">Pixabay</a>
+    - search_mobile.html - Image by <a href="https://pixabay.com/users/mysticsartdesign-322497/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=425730">Mystic Art Design</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=425730">Pixabay</a>
+- Image from [Unsplash](https://unsplash.com/) was used for:
+    - 404.html - Image by <a href="https://unsplash.com/@enginakyurt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">engin akyurt</a> on <a href="https://unsplash.com/s/photos/blank-page?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+
+---
 
 ### **Acknowledgements**
 Thank you to my mentor [Adegbenga Adeye](https://github.com/deye9) and CI tutor support for all their time and patience!
+
+---
 
 ## **Disclaimer** 
 All images and content on this website is for educational purposes only.

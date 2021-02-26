@@ -1,4 +1,4 @@
-#### [Back to README.md](Fantastic_Books/README.md)
+#### [Back to README.md](https://github.com/aineon/Fantastic-Books/blob/master/README.md)
 
 ## **Testing**
 ### [**Table of Contents**](#table-of-contents)
@@ -6,7 +6,7 @@
 - [User Stories](#user-stories)
 - [Manual Testing](#manual-testing)
 - [Responsiveness](#responsiveness)
-- [Automated Testing](#automated-testinf)
+- [Automated Testing](#automated-testing)
 - [Bugs and Issues](#bugs-and-issues)
     - [Resolved](#resolved)
     - [Existing](#existing)
@@ -390,14 +390,111 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
 
 ## **Automated Testing**
 - [W3C Markup Validation](https://validator.w3.org/#validate_by_input) - to validate HTML
-    - no errors found
+    - All errors thrown were related to jinja templating
 - [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) - to vaildate CSS Code
     - no errors found
-- [CSS Lint]
 - [JShint](https://jshint.com/) - to validate Javascript code
-    - no major errors found
-    - below metrics provided: 
-- [Python Code Checker] 
+    - no errors found
+- [PEP8 Online](http://pep8online.com/) 
+    - no errors found
+- [Python Checker](https://www.pythonchecker.com/) - no errors found
+- [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) - no overflow detected
+- [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) - generated the below reports:
+
+**index.html**
+- **Desktop**
+    - Performance: 86
+    - Accessiblity: 100
+    - Best Practices: 100
+    - SEO: 100
+- **Mobile**
+    - Performance: 65 - due to background image size
+    - Accessiblity: 100
+    - Best Practices: 100
+    - SEO: 100
+
+**login.html**
+- **Desktop**
+    - Performance: 96
+    - Accessiblity: 100
+    - Best Practices: 93
+    - SEO: 100
+- **Mobile**
+    - Performance: 71 - due to background image size
+    - Accessiblity: 96
+    - Best Practices: 93
+    - SEO: 100
+
+**reviews.html**
+- **Desktop**
+    - Performance: 87
+    - Accessiblity: 86
+    - Best Practices: 93
+    - SEO: 100
+- **Mobile**
+    - Performance: 55 - due to background image/images size
+    - Accessiblity: 96
+    - Best Practices: 93
+    - SEO: 100
+
+**add_review.html**
+- **Desktop**
+    - Performance: 90
+    - Accessiblity: 100
+    - Best Practices: 100
+    - SEO: 100
+- **Mobile**
+    - Performance: 68 - due to background image 
+    - Accessiblity: 96
+    - Best Practices: 100
+    - SEO: 100
+
+**edit_review.html**
+- **Desktop**
+    - Performance: 94
+    - Accessiblity: 100
+    - Best Practices: 100
+    - SEO: 100
+- **Mobile**
+    - Performance: 67 - due to background image 
+    - Accessiblity: 96
+    - Best Practices: 100
+    - SEO: 100
+
+**register.html**
+- **Desktop**
+    - Performance: 91
+    - Accessiblity: 100
+    - Best Practices: 93
+    - SEO: 100
+- **Mobile**
+    - Performance: 69 - due to background image 
+    - Accessiblity: 96
+    - Best Practices: 93
+    - SEO: 100
+
+**manage_users.html**
+- **Desktop**
+    - Performance: 98
+    - Accessiblity: 100
+    - Best Practices: 93
+    - SEO: 100
+- **Mobile**
+    - Performance: 86 
+    - Accessiblity: 95
+    - Best Practices: 93
+    - SEO: 100
+
+**search_mobile.html**
+- **Mobile**
+    - Performance: 67 - due to background image 
+    - Accessiblity: 96
+    - Best Practices: 93
+    - SEO: 100
+
+- Lighthouse was unable to generate a report for profile.html
+- I was unable to compress the background images further to improve performance
+
 
 #### [**Table of Contents**](#table-of-contents)
 ---
@@ -405,6 +502,177 @@ Using [DevTools](https://developers.google.com/web/tools/chrome-devtools) respon
 ## **Bugs and Issues**
 
 ### **Resolved**
+**_issue_**:
+- Sidenav links not clickable
+
+**_fix_**:
+- Materialize has a built class of `.sidenav-overlay` which was covering the sidenav links
+- Changed the `z-index` of `.sidenav-overlay` to 1
+
+**_issue_**:
+- Profile not rendering
+
+**_fix_**:
+- Add `username=session['user']` to profile `href` in navlinks
+````
+<li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
+````
+
+**_issue_**:
+- Heart checkbox on review in reviews.html couldn't be clicked independantly of each other.
+
+**_fix_**:
+- Added `{{loop.index}}` to `id`, `label` and `name` to the input and label of `heart-checkbox` div.
+````
+<div class="heart-checkbox">
+    <input type="checkbox" id="save{{loop.index}}" name="save{{loop.index}}" onchange="this.form.submit()" />
+        <label for="save{{loop.index}}" class="hvr-pulse">
+            Save Review!
+        </label>
+</div>
+````
+**_issue_**:
+- Clicking on heart checkbox on review did not submit the form
+
+**_fix_**:
+- Added `onchange="this.form.submit()` to the checkbox input
+````
+<input type="checkbox" id="save{{loop.index}}" name="save{{loop.index}}" onchange="this.form.submit()" />
+````
+
+**_issue_**:
+- User was able to save the same review multiple times
+
+**_fix_**:
+- Added an `if` statement to `add_favourite` function
+````
+    if ObjectId(review_id) in favourites:
+        flash("Review Already Saved")
+````
+
+**_issue_**: 
+- Star rating not being picked up on _edit_review_ form
+
+**_fix_**:
+- Added `"rating": request.form.get("star") or default_rating` to `update{}` dictionary in _edit_reivew_ function
+
+**_issue_**:
+- Scripts for scrollBtn on reviews.html and tabs on profile.html not executing.
+- Scritps were in conflict with each other when switching between the pages.
+
+**_fix_**:
+- Seperated the scripts for each page into their own `.js` file
+
+**_issue_**:
+- `delete_profile`function throwing `user not defined` error when trying to delete user account
+
+**_fix_**:
+- Defined user in profile view 
+````
+ user = mongo.db.users.find_one({"username": session["user"]})
+````
+**_issue_**:
+- `default_img ` variable set in add/edit review forms for when a user doesn't add 
+a link was not being pulled onto reviews displayed on the profile page   
+
+**_fix_**:
+- Added a `/` to the start of the file path
+`default_img = ("/static/images/no_cover.png")`
+
+**_issue_**:
+- If user didn't select a _star rating_ on add/edit review forms, the word 'none' was displaying instead
+
+**_fix_**:
+- Created a default variable `default_rating` to display if no stars were selected by the user
+` default_rating = "No Stars Awarded"`
+
+**_issue_**:
+- `{% else %}` clause (if user has created no reviews) of `{% if reviews|length > 0 %} ` was
+not rendering `{% else %}` clause code
+````
+ {% else %}
+<h3>You have no reviews </h3>
+    <a href="{{ url_for('add_review') }}" type="submit" class="btn btn-small center-align">
+        Add Review 
+    </a>
+````
+**_fix_**:
+- Changed the `my_reviews` variable in the profile view to a list 
+ ````
+ my_reviews = list(mongo.db.reviews.find(
+            {"created_by": session["user"]}).sort("title", 1))
+````
+**_issue_**:
+- `setTimeOut()` function not running on `flash messages`
+- `cannot set style of undefined` error in the console
+
+**_fix_**:
+- Added a `for loop` to iterate through the list of flash messages and set `display:none`
+to each one
+
+**_issue_**:
+- ScrollBtn not scrolling up when clicked
+
+**_fix_**:
+- Changed `onclick` event to `event listener`
+````
+    document.getElementById("scrollToTop").addEventListener("click", scrollUp);
+````
+**_issue_**:
+- Users reviews not being deleted when they deleted their account
+
+**_fix_**:
+- Changed `mongo.db.reviews.remove({"created_by": session['user']})` in the delete_profile function to
+`mongo.db.reviews.delete_many({"created_by": session['user']})`
+
+**_issue_**:
+- Favourite reviews not displaying in 'My favourites' tab on profile page
+
+**_fix_**:
+- Looped through the `user_favourites` object and appended the review to `fav_review[]` 
+- Moved code from `get_favourites` function into `profile` function
+````
+    user_favourites = user["favourites"]
+    fav_review = []
+    for fav in user_favourites:
+        review = mongo.db.reviews.find_one({"_id": ObjectId(fav)})
+        if review is not None:
+            fav_review.append(review)
+````
+
+**_issue_**:
+- When deleting a review or profile from the modals the first document in the list was being deleted instead of the selected profile/review
+
+**_fix_**:
+- Specified document to be deleted in the modal `id` and `data-target`
+- For delete review modals the below code was added:
+````
+    <button data-target="{{'confirm_delete'+review.title}}" class="btn-small modal-trigger">Delete</button>
+    <div id="{{'confirm_delete'+review.title}}" class="modal">
+````
+- For the delete account modals the the below code was added:
+````
+    <button data-target="{{'admin_profile_delete'+user.username}}" class="btn-small delete-btn right modal-trigger">
+        Delete Account
+    </button>  
+    <div id="{{'admin_profile_delete'+user.username}}" class="modal">
+````    
+**_issue_**:
+- Deleted reviews were not being removed from the 'My Favourties' tab on the profile page of other users
+
+**_fix_**:
+- Added an `if` statement to profile function to only display reviews that exist to the profile page
+````
+  for fav in user_favourites:
+    review = mongo.db.reviews.find_one({"_id": ObjectId(fav)})
+    if review is not None:
+        fav_review.append(review)
+````
+### **Existing**
+
+- Although _favourites_ are not being displayed when the review has been deleted they still exist in the favourites[] field in the users collection in the database
+
+- When _admin_ user deletes a users account that users reviews are not being deleted
 
 #### [**Table of Contents**](#table-of-contents)
 ---
