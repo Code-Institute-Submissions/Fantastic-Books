@@ -3,7 +3,8 @@
 let scrollBtn = document.getElementById("scrollToTopMUsers");
 
 window.onscroll = function() {
-    showScrollBtn()};
+    showScrollBtn();
+};
 
 // Show button when user scrolls down 20px from top of page
 function showScrollBtn() {
@@ -12,7 +13,7 @@ function showScrollBtn() {
   } else {
     scrollBtn.style.display = "none";
   }
-};
+}
 
 // On button click, scroll to the top of the page 
 function scrollUp() {

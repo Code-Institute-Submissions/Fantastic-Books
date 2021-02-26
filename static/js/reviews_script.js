@@ -1,18 +1,19 @@
 // Scroll code from W3S
 // Get button to scroll back to top of the page
-let scrollBtn = document.getElementById("scrollToTop");
+let scrollBtnR = document.getElementById("scrollToTop");
 
 window.onscroll = function() {
-    showScrollBtn()};
+    showScrollBtn();
+};
 
 // Show button when user scrolls down 20px from top of page
 function showScrollBtn() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollBtn.style.display = "block";
+    scrollBtnR.style.display = "block";
   } else {
-    scrollBtn.style.display = "none";
+    scrollBtnR.style.display = "none";
   }
-};
+}
 
 // On button click, scroll to the top of the page 
 function scrollUp() {

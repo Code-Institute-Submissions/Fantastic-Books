@@ -21,28 +21,29 @@
   evt.currentTarget.className += " active";
 }
 
-openBooksTabOnload()
+openBooksTabOnload();
 // Open first tab on page load
 function openBooksTabOnload()  {
     document.getElementById("books").style.display = "block";
     document.getElementsByClassName("tablinks")[0].classList.add("active");
-};
+}
 
 // Scroll code from W3S
 // Get button to scroll back to top of the page
-let scrollBtn = document.getElementById("scrollToTopProfile");
+let scrollBtnP = document.getElementById("scrollToTopProfile");
 
 window.onscroll = function() {
-    showScrollBtn()};
+    showScrollBtn();
+};
 
 // Show button when user scrolls down 20px from top of page
 function showScrollBtn() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollBtn.style.display = "block";
+    scrollBtnP.style.display = "block";
   } else {
-    scrollBtn.style.display = "none";
+    scrollBtnP.style.display = "none";
   }
-};
+}
 
 // On button click, scroll to the top of the page 
 function scrollUp() {

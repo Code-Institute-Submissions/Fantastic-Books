@@ -1,3 +1,4 @@
+  
  document.addEventListener('DOMContentLoaded', function () {
      let sidenavs = document.querySelectorAll(".sidenav");
      let sidenavsInstance = M.Sidenav.init(sidenavs, {edge: "right"});
@@ -21,6 +22,5 @@ setTimeout(()=> {
 // Dynamically set copyright date
     let date = document.getElementById('date');
     date.textContent = new Date().getFullYear();
-
   
 
