@@ -96,18 +96,8 @@ form ::-webkit-input-placeholder {
     padding-left: 5px; 
     font-size: 1rem;   
 }
-/*
-form ::-moz-placeholder {
-    color: #5a052c;
-    padding-left: 5px;    
-}
-*/
-form :-ms-input-placeholder {
-    color: #5a052c;
-    padding-left: 5px;    
-}
 
-form ::-ms-input-placeholder {
+form :-ms-input-placeholder {
     color: #5a052c;
     padding-left: 5px;    
 }
@@ -184,6 +174,7 @@ form.search-bar::after {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  position: relative;
 }
 
 /* Footer */
@@ -304,6 +295,7 @@ blockquote {
 }
 
 /* Profile Page */
+
 .profile-welcome {
     text-align: center;
     margin: 0 auto 0 auto;
@@ -396,7 +388,7 @@ blockquote {
     border: 0;
     margin: 0;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
 }
 
 .collapsible-header {
@@ -447,7 +439,6 @@ textarea {
     color: #952055;
     font-weight: 500;
 }
-
 
 /* Form Headings */
 
@@ -512,7 +503,7 @@ input.valid[type=password]:not(.browser-default),
 input.valid[type=email]:not(.browser-default) {
     border-bottom: 1px solid #420420;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
 }
 
 /* Form Buttons */
@@ -679,7 +670,7 @@ input.valid[type=email]:not(.browser-default) {
     margin-right: .5rem;
 }
 
-/* Heart Checkbox */
+/* Heart Checkboxes */
 
 .broken-heart-checkbox,
 .heart-checkbox {
@@ -717,7 +708,6 @@ input.valid[type=email]:not(.browser-default) {
      font-weight: 500;
 }
 
-
 /*Scroll Up Btns*/
 
 #scrollToTopMUsers,
@@ -731,7 +721,7 @@ input.valid[type=email]:not(.browser-default) {
     border-radius: 5px;
     color: #fafaed;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
     z-index: 99;
     border: none;
     outline: none;
@@ -868,7 +858,6 @@ input.valid[type=email]:not(.browser-default) {
     .clear-btn {
         margin-right: 2rem;
     }
-
 }
 
 /* Tablet */
@@ -894,7 +883,7 @@ input.valid[type=email]:not(.browser-default) {
     }
 }
 
-/* Mobile devices */
+/* Small devices */
 @media only screen and (max-width: 736px) {
     /* Navbar */
     nav .brand-logo {
@@ -948,6 +937,7 @@ input.valid[type=email]:not(.browser-default) {
         margin-top: 0;
     }
 
+    /* Scroll Buttons */
     #scrollToTopMUsers,
     #scrollToTopProfile,
     #scrollToTop {
