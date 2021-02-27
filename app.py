@@ -101,13 +101,11 @@ def login():
 # Render users profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    print("Loading profile page")
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     # find reivews created by user
     if session["user"]:
-        print("user is signed in")
         my_reviews = list(mongo.db.reviews.find(
             {"created_by": session["user"]}).sort("title", 1))
         user = mongo.db.users.find_one(
@@ -115,8 +113,8 @@ def profile(username):
         user_favourites = user["favourites"]
         fav_review = []
         """
-        get user favourites and display them on profile page
-        if they exist in the db
+        finds the review the user has added to favourites,
+        displays it on profile page if review exists in the db
         """
         for fav in user_favourites:
             review = mongo.db.reviews.find_one({"_id": ObjectId(fav)})
@@ -141,6 +139,7 @@ def reviews():
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
+        # default values if fields are left blank
         default_url = ("https://www.bookdepository.com/")
         default_img = ("/static/images/no_cover.png")
         default_rating = "No Stars Awarded"
@@ -169,6 +168,7 @@ def add_review():
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
+        # default values if fields are left blank
         default_url = ("https://www.bookdepository.com/")
         default_img = ("/static/images/no_cover.png")
         default_rating = "No Stars Awarded"
@@ -204,6 +204,7 @@ def add_favourite(review_id):
         if ObjectId(review_id) in favourites:
             flash("Review Already Saved")
             return redirect(url_for("reviews"))
+        # otherwise adds review to users favourites
         mongo.db.users.update_one(
              user, {"$push": {
                 "favourites": ObjectId(review_id)}})
@@ -222,7 +223,7 @@ def remove_favourite(review_id):
         return redirect(url_for("profile", username=session["user"]))
 
 
-# Allows user to delete a review
+# Allows user to delete a review they have created
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
@@ -253,9 +254,10 @@ def logout():
     return redirect(url_for("login"))
 
 
-# Deletes user account
+# User can delete their account
 @app.route("/delete_profile/<user_id>")
 def delete_profile(user_id):
+    # removes any reveiws created by user from db
     mongo.db.reviews.delete_many({"created_by": session['user']})
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     flash("Your profile has been deleted")
@@ -278,7 +280,7 @@ def delete_review_admin(review_id):
     return redirect(url_for("reviews"))
 
 
-# Allows sdmin to delete any user
+# Allows admin to delete any user
 @app.route("/delete_account_admin/<user_id>")
 def delete_account_admin(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})
@@ -295,4 +297,4 @@ def page_not_found(error):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
