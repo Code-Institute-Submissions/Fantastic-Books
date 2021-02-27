@@ -260,7 +260,7 @@ def delete_profile(user_id):
     # removes any reveiws created by user from db
     mongo.db.reviews.delete_many({"created_by": session['user']})
     mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("Your profile has been deleted")
+    flash("Your account has been deleted")
     session.clear()
     return redirect(url_for("index"))
 
@@ -284,7 +284,7 @@ def delete_review_admin(review_id):
 @app.route("/delete_account_admin/<user_id>")
 def delete_account_admin(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("Profile has been deleted")
+    flash("Account has been deleted")
     return redirect(url_for("manage_users"))
 
 
