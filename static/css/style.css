@@ -90,16 +90,18 @@ form.search-bar input[type=text] {
     height: 1.75em;
 }
 
+form ::-moz-placeholder,
 form ::-webkit-input-placeholder {
     color: #5a052c;
-    padding-left: 5px;    
+    padding-left: 5px; 
+    font-size: 1rem;   
 }
-
+/*
 form ::-moz-placeholder {
     color: #5a052c;
     padding-left: 5px;    
 }
-
+*/
 form :-ms-input-placeholder {
     color: #5a052c;
     padding-left: 5px;    
@@ -526,13 +528,16 @@ input.valid[type=email]:not(.browser-default) {
 }
 
 .btn-small:focus,
-.btn-small:active,
 .btn-small:visited {
     background-color: #420420; 
 }
 
 .btn-small:hover {
     background-color: #952055;
+}
+
+.btn-small:active {
+    background-color: #420420;
 }
 
 .add-review-btn {
@@ -600,13 +605,16 @@ input.valid[type=email]:not(.browser-default) {
 }
 
 .mobile-reviews-btn:focus,
-.mobile-reviews-btn:active,
 .mobile-reviews-btn:visited {
     background-color: #420420;
 }
 
 .mobile-reviews-btn:hover {
     background-color: #952055;
+}
+
+.mobile-reviews-btn:active {
+    background-color: #420420;
 }
 
 .clear-btn {
@@ -738,20 +746,28 @@ input.valid[type=email]:not(.browser-default) {
     right: 10rem;
 }
 
+#scrollToTopMUsers:focus,
+#scrollToTopMUsers:visited,
 #scrollToTopProfile:focus,
-#scrollToTopProfile:active,
 #scrollToTopProfile:visited,
 #scrollToTop:focus,
-#scrollToTop:active,
 #scrollToTop:visited {
     background-color: #420420;
 }
 
+#scrollToTopMUsers:hover,
 #scrollToTopProfile:hover,
 #scrollToTop:hover {
     background-color: #952055;
 }
 
+#scrollToTopMUsers:active,
+#scrollToTopProfile:active,
+#scrollToTop:active {
+    background-color: #420420;
+}
+
+#scrollToTopMUsers i,
 #scrollToTopProfile i,
 #scrollToTop i {
     font-size: 1.75rem;
@@ -870,6 +886,12 @@ input.valid[type=email]:not(.browser-default) {
     .welcome-container {
         margin-top: 6rem;
     }
+
+    .buy-btn {
+        float: right;
+        margin-right: .5rem;
+        margin-top: .5rem;
+    }
 }
 
 /* Mobile devices */
@@ -881,6 +903,7 @@ input.valid[type=email]:not(.browser-default) {
         font-size: 2.5rem;
         left: 20%;
     }
+    
     /* Home Page */
     .welcome-container {
         margin-top: 2rem;
@@ -915,6 +938,14 @@ input.valid[type=email]:not(.browser-default) {
     .book-cover {
         margin-right: 30px;
         margin-top: 7px;
+    }
+
+    .review-rating {
+        text-align: center;
+    }
+
+    .buy-btn {
+        margin-top: 0;
     }
 
     #scrollToTopMUsers,
