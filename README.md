@@ -89,20 +89,24 @@ and clean aesthetic.
 - I wanted the app to be responsive on all commonly used devices.
 
 #### Colour Palette
-- I wanted the colour scheme to be elegant and complement the background images while still be easily readable.  
+- I wanted the colour scheme to be rich and elegant and complement the background images while still be easily readable.  
    
 **Colour Palette**
 
-<img src="/static/readmeimages/colour_palette.jpg">
+<img src="/static/readme_images/colour_palette.jpg">
 
 ##### **Primary Colour Palette**
 
-<img src="/static/readmeimages/primary_palette.jpg">
+<img src="/static/readme_images/primary_palette.jpg">
 
 I chose #420420, #5a052c and #fafaed as my main colour scheme. I felt these colours worked well together and were in
 keeping with the overall aesthetic of the app.
 
- <img src="/static/readmeimages/420420.jpg">  
+ <img src="/static/readme_images/420420.jpg">  
+
+I chose this color for any element that needed to be immediately visible/identifiable and 
+critical to navigation, interaction and purpose of the site. 
+I felt it stood out well against #fafaed and helped improve readability.
 
 - **Site wide**:
     - brand logo
@@ -110,7 +114,7 @@ keeping with the overall aesthetic of the app.
     - sidenav trigger icon
     - sidenav links
     - footer background colour
-    - all button backgrounds
+    - all button backgrounds 
 - Home Page: 
     - Welcome title, subtitle and text
 - Profile Page:  
@@ -119,14 +123,20 @@ keeping with the overall aesthetic of the app.
 - Mobile Search Page:
     - title text
     
-<img src="/static/readmeimages/5a052c.jpg">
+<img src="/static/readme_images/5a052c.jpg">
+
+I chose this colour for its similarity to #420420 but also to differentiate slightly from the other elements on the page, while
+still standing out against #fafaed.
 
 - **Site wide**:
     - body text
     - sidenav title
     - form labels/inputs 
 
-<img src="/static/readmeimages/fafaed.jpg">
+<img src="/static/readme_images/fafaed.jpg">
+
+I chose this colour as I felt it was a clean colour that emphasized any text overlayed on it. It helped improved readability
+by making the text stand out from the background images.
 
 - **Site wide**:
     - nav background
@@ -140,26 +150,31 @@ keeping with the overall aesthetic of the app.
    
 ##### **Secondary Colour Palette**
 
-<img src="/static/readmeimages/secondary_palette.jpg">
+<img src="/static/readme_images/secondary_palette.jpg">
 
 I chose these colours as I felt they worked well with the primary colour scheme and highlighted
-certain elements.
+certain elements without being overbearing, while still offering enough differentiation 
+for the user to notice the colour change.
 
-<img src="/static/readmeimages/952055.jpg">
+<img src="/static/readme_images/952055.jpg">
+
+I chose this colour for its subtle differentiation from the primary colours while still staying in the same colour family.
 
 - hover colour for all buttons
 - dividers
 - links
 - active inputs/labels
 
-<img src="/static/readmeimages/d9ccd2.jpg">
+<img src="/static/readme_images/d9ccd2.jpg">
 
 This colour was used for the background of manage_users.html.
-Since this page was only visible to the admin of the site I felt it was unnecessary to have a background image.
+Since this page was only visible to the admin of the site I felt it was unnecessary to have a background image but felt a white background was 
+a too glaring and #fafaed offered no differentiation from the content.
 
 #### **Background Images**
 I chose book related imagery that I felt envoked the magic of reading your favourite book
-and discovering new books. The feeling you get when your're in a beautiful library or bookshop or slip into the world of the book you are reading.
+and discovering new books. The feeling you get when your're in a beautiful library or 
+bookshop or slip into the world of the book you are reading. I wanted the site to feel like a beautiful place you could escape to.
 
 #### **Typography**
 - I wanted a handwriting style font for the brand logo, titles and headings.
@@ -173,7 +188,10 @@ font, had good readability and was listed as a popular pairing for [Tangerine](h
  - Research existing book review sites 
  - Choose background images
  - Decide on general colour scheme
+ - Decide what elements and features I want to include 
+ - Where each of those elements should be placed - on which page and where on that page
  - Decide on what and how many links I was going to have and the content of each of those links
+ - Create wireframes for each page for mobile, tablet and desktop
  - Create the base.html with common elements, links and scripts
  - Design the basic layout of each page, decide on which background image would be used for each page and write the basic functionality to render each page.
  - Develop login/logout/register functionality
@@ -202,7 +220,9 @@ font, had good readability and was listed as a popular pairing for [Tangerine](h
 ## **Database Model**
 MongoDB was used for this project. The below collections were mapped out utilising 
 the NoSQL features of MongoDB.
-
+- The main relationship between the collections is the ObjectId of the review document
+ from the reviews collection being added to the 'favourites field' in a user document of the users collection
+- This relationship allowed users to save thier favourite reviews created by other users. 
 
 **Users Collection**
 
@@ -289,13 +309,14 @@ the NoSQL features of MongoDB.
  - **_Link to Register.html_** - redirects user to register.html 
  
  #### **profile.html**  - A personalised page for each user
- - **_Search bar_** - allows users to search for a book/review by title, author or genre and renders results on reviews.html  
+ - **_Search bar_** - allows users to search for a book/review by title, author, genre or username and renders results on reviews.html  
  - **_My Favourites Tab_** - displays any reviews a user has added to their favourites
     - **_Remove Review_** Icon - allows users to remove a review from their favourites tab and from the favourites field in the users collection in the database
     - **_Buy_** Button - Redirects user to a site where the book can be purchased
     - **_Find Books_** button - directs user to the reviews page
  - **_My Reviews Tab_** - displays reviews created by that user
-    - **_Delete_** Button - triggers a modal asking user to confirm they want to delete that review 
+    - **_Delete_** Button - triggers a modal asking user to confirm they want to delete that review
+        - Prevents accidental deletion  
     - **_Modal Delete_** Button: 
         - Deletes the review, removing it from the database 
         - Flash message confirms delete
@@ -308,14 +329,15 @@ the NoSQL features of MongoDB.
         - Flash message confirms review has been added 
         - Redirects user to profile.html
  - **_Delete Account Tab_** - contains delete account button
-    - **_Delete Account_** Button - triggers modal asking user to confirm they want to delete their account. 
+    - **_Delete Account_** Button - triggers modal asking user to confirm they want to delete their account.
+            - Prevents accidental deletion 
     - **_Modal Delete_** Button: 
         - Deletes users account from the database
         - Flash message confirms delete
         - Redirects to index.html
 
 #### **reviews.html** - Displays all reviews created by all users
- - **_Search bar_** - allows users to search for a book/review by title, author or genre and renders results 
+ - **_Search bar_** - allows users to search for a book/review by title, author, genre or username and renders results 
  - **_Save Review_** 
     - Not visible to review creator 
     - Allows other users to save that review to 'My Favourites' tab on thier profile 
@@ -325,6 +347,8 @@ the NoSQL features of MongoDB.
  - **_Scroll Up_** Button - returns user to the top of the page
  - If user is **_admin_** - **Edit** and **Delete** buttons are visible on all reviews
     - **_Delete_** Button allows **admin** to delete any review created by any user
+        - Triggers a modal asking user to confirm they want to delete that review
+        - Prevents accidental deletion 
     - **_Edit_** Button allows **admin** to edit any review created by any user
 
 #### **add_review.html** - Allows users to add reviews without navigating to profile page 
@@ -342,12 +366,14 @@ the NoSQL features of MongoDB.
 
 #### **search_mobile.html**
 - Only accessible on small devices
-- Allows users to search for reviews 
+- Allows users to search for reviews by title, author, genre or username
 
 #### **manage_users.html**
 - Only accessible to **admin** user 
 - Lists all current users in the users collection
 - **_Delete_** Button - Allows **admin** to delete any user account
+    - Triggers a modal asking user to confirm they want to delete that account
+    - Prevents accidental deletion 
 
 #### **Log Out** Nav Link 
  - Logs user out of their account 
@@ -358,7 +384,8 @@ the NoSQL features of MongoDB.
 - Implement Google Books API access so users can automatically populate book info fields
 - Add logic so users can comment on other users reviews
 - Add logic so users can upvote or downvote other users reviews
-- Contact Admin Page
+- Messaging between users
+- Contact Admin 
 
 ##### [Back to Table of Contents](#table-of-contents)
 ---
@@ -420,6 +447,8 @@ Full testing documentation can be found [here](TESTING.md).
 ## **Deployment**
 This project was developed using Gitpod IDE. The live version of this site is hosted using [Heroku](https://signup.heroku.com/)
 To deploy this project follow the below steps.
+
+The live site can be viewed [here](https://fantastic-books.herokuapp.com/).
 
 ### **Requirements to run this app**
 - **Python3** 

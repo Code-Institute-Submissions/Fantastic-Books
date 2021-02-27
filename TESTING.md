@@ -153,14 +153,14 @@ under clearly identified tabs.
 
 #### **profile.html**
 - **_Seach Bar_**
-    - Users can perform search on all reviews by _'Title', 'Author' or 'Genre'_
+    - Users can perform search on all reviews by _'Title', 'Author', 'Genre' or 'Username'_
     - At least 3 characters must be enterd for search to be valid
     - On click of the _'search'_ button, results are displayed on reviews.html
     - _'Search'_ button changes colour on hover
     - Search bar is not visible on small devices
 - **_Profile Title_** 
     - Displays the users name
-    - Not visible on smalle devices
+    - Not visible on small devices
 - **_Tabs_**
     - The active tab button is highlighted
     - **_'My Favourites'_**
@@ -186,6 +186,7 @@ under clearly identified tabs.
             - Changes colour on hover
             - Asks user to confirm they want to delete the review
             - States the name of the book they are trying to delete
+            - Prevents accidental deletion
         - _'Delete'_modal button:
             - Changes colour on hover 
             - Deletes the review from the database, 
@@ -219,6 +220,7 @@ under clearly identified tabs.
         - _'Delete Account'_ button:
             - Changes colour on hover 
             - Triggers modal asking users to confirm they want to delete their account
+            - Prevents accidental deletion
         - _'Delete'_modal button
             - Changes colour on hover 
             - Deletes the user from the database 
@@ -232,11 +234,11 @@ under clearly identified tabs.
 
 #### **reviews.html** 
 - **_Seach Bar_**
-    - Users can perform search on all reviews by _'Title', 'Author' or 'Genre'_
+    - Users can perform search on all reviews by _'Title', 'Author', 'Genre' or 'Username'_
     - At least 3 characters must be enterd for search to be valid
     - On click of the _'search'_ button, results are displayed
     - If there are no matching results, user informed 'No Results Found' and 'clear results button is displayed
-    - **_Clear Results_** button clears the current search and reloads reviews.html
+    - _Clear Results_ button clears the current search and reloads reviews.html
     - _'Search'_ button changes colour on hover
     - _Clear results_ button 
         - Font awesome icon for '_redo_'
@@ -262,10 +264,12 @@ under clearly identified tabs.
             - _'Delete'_ button: 
                 - Changes colour on hover
                 - Triggers a modal to confirm review delete
+                - Prevents accidental deletion
         - _'Delete Modal'_:
             - Changes colour on hover
             - Asks user to confirm they want to delete the review
             - States the title of the book to be deleted
+            - Prevents accidental deletion
         - _'Delete'_modal button:
             - Changes colour on hover 
             - Deletes the review from the database
@@ -332,7 +336,7 @@ under clearly identified tabs.
 #### **search_mobile.html**
 - Only available on small devices
 - **_Seach Bar_**
-    - Users can perform search on all reviews by _'Title', 'Author' or 'Genre'_
+    - Users can perform search on all reviews by _'Title', 'Author', 'Genre' or 'Username'_
     - At least 3 characters must be enterd for search to be valid
     - On click of the _'search'_ button, results are displayed on reviews.html
     - _'Search'_ button changes colour on hover
@@ -348,6 +352,7 @@ under clearly identified tabs.
 - _'Delete Account'_ button: 
     - Changes colour on hover
     - Triggers a modal to confirm account delete
+    - Prevents accidental deletion
 - _'Delete Account'_ Modal: 
     - Asks user to confirm they want to delete this account
 - _'Delete Account'_ Modal Button:
@@ -712,6 +717,7 @@ deleted instead of the selected account/review
 - Although _favourites_ are not being displayed when the review has been deleted they still exist in the favourites[] field in the users collection in the database
 
 - When _admin_ user deletes a users account that users reviews are not being deleted
+- However search can be performed for the username of the user which lists any reviews created by that user and then reviews can be deleted individually
 
 
 #### [**Table of Contents**](#table-of-contents)
